@@ -1,0 +1,3 @@
+55; 52; 99 dark blue
+89; 186; 247 light blue
+249; 89; 83 orange
