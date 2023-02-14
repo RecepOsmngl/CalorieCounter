@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CalorieCounterEntity\DCalorieCounterEntity.csproj" />
+    <ProjectReference Include="..\CalorieCounterEntity\CalorieCounterEntity.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CCalorieCounterDataAccess.Migrations
+namespace CalorieCounterDataAccess.Migrations
 {
     public partial class Init : Migration
     {
@@ -36,6 +36,20 @@ namespace CCalorieCounterDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PhotographEntityTable",
+                columns: table => new
+                {
+                    PhotographID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PhotographName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Photograph = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PhotographEntityTable", x => x.PhotographID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserEntityTable",
                 columns: table => new
                 {
@@ -62,6 +76,7 @@ namespace CCalorieCounterDataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FoodName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FoodCategoryID = table.Column<int>(type: "int", nullable: true),
+                    PhotographID = table.Column<int>(type: "int", nullable: true),
                     FoodCalorie = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -72,6 +87,11 @@ namespace CCalorieCounterDataAccess.Migrations
                         column: x => x.FoodCategoryID,
                         principalTable: "FoodCategoryEntityTable",
                         principalColumn: "FoodCategoryID");
+                    table.ForeignKey(
+                        name: "FK_FoodEntityTable_PhotographEntityTable_PhotographID",
+                        column: x => x.PhotographID,
+                        principalTable: "PhotographEntityTable",
+                        principalColumn: "PhotographID");
                 });
 
             migrationBuilder.CreateTable(
@@ -116,6 +136,11 @@ namespace CCalorieCounterDataAccess.Migrations
                 column: "FoodCategoryID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_FoodEntityTable_PhotographID",
+                table: "FoodEntityTable",
+                column: "PhotographID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_MealEntityTable_FoodID",
                 table: "MealEntityTable",
                 column: "FoodID");
@@ -147,6 +172,9 @@ namespace CCalorieCounterDataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "FoodCategoryEntityTable");
+
+            migrationBuilder.DropTable(
+                name: "PhotographEntityTable");
         }
     }
 }

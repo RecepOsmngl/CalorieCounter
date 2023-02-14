@@ -20,6 +20,8 @@ namespace CalorieCounterDataAccess
 
         public DbSet<MealEntity> MealEntityTable { get; set; }
 
+        public DbSet<PhotographEntity> PhotographEntityTable { get; set; }
+
         public DbSet<UserEntity> UserEntityTable { get; set; }
 
         // OnConfiguring
@@ -29,13 +31,14 @@ namespace CalorieCounterDataAccess
             base.OnConfiguring(optionsBuilder);
         }
 
-        // 
+        // OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new FoodCategoryConfiguration())
                         .ApplyConfiguration(new FoodConfiguration())
                         .ApplyConfiguration(new MealCategoryConfiguration())
                         .ApplyConfiguration(new MealConfiguration())
+                        .ApplyConfiguration(new PhotographConfiguration())
                         .ApplyConfiguration(new UserConfiguration());
         }
     }

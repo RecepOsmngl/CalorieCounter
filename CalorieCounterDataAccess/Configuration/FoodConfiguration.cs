@@ -20,6 +20,10 @@ namespace CalorieCounterDataAccess.Configuration
             builder.HasOne(x => x.FoodCategoryEntity)
                    .WithMany(x => x.FoodEntity)
                    .HasForeignKey(x => x.FoodCategoryID);
+
+            builder.HasOne(x => x.PhotographEntity)
+                   .WithMany(x => x.FoodEntity)
+                   .HasForeignKey(x => x.PhotographID);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace CalorieCounterPresentation.LoginUI
 {
     public partial class RegistrationForm : Form
     {
-        // github try v1
+        // github try v4
 
         public RegistrationForm()
         {
@@ -78,32 +78,44 @@ namespace CalorieCounterPresentation.LoginUI
 
             _UserEntity.UserGender = RegistrationFormUserGenderTextBox.Text.Trim();
 
-            // Password check
+
+
+
+            // Mail Extension Check
+            bool _MailExtensionCheck = _UserService.MailValidation(_UserEntity);
+            if (_MailExtensionCheck == false)
+            {
+                MessageBox.Show("Please use one of mail addresses below!");
+                ClearRegistrationFormFields();
+                return;
+            };
+
+            // Password Check
             if (_UserEntity.UserMail == "" && _UserEntity.UserPassword == "")
             {
                 MessageBox.Show("E-mail or password cannot be empty!");
-                ClearFields();
+                ClearRegistrationFormFields();
                 return;
             }
 
             if (RegistrationFormUserPasswordTextBox.Text != RegistrationFormConfirmPasswordTextBox.Text)
             {
                 MessageBox.Show("Passwords do not match!");
-                ClearFields();
+                ClearRegistrationFormFields();
                 return;
             }
 
             if(IsLengthCheck == false || IsLowerCheck == false || IsUpperCheck == false || IsDigitCheck == false)
             {
                 MessageBox.Show("Please satistify the password requirements!");
-                ClearFields();
+                ClearRegistrationFormFields();
                 return;
             }
 
-            if (!_UserService.CheckUserExistence(_UserEntity))
+            if (_UserService.CheckUserExistence(_UserEntity))
             {
                 MessageBox.Show("This mail already in use, please use different one!");
-                ClearFields();
+                ClearRegistrationFormFields();
                 return;
             }
 
@@ -124,6 +136,8 @@ namespace CalorieCounterPresentation.LoginUI
                 _LoginForm.Show();
                 this.Hide();
             }
+
+
         }
 
         // ***CHECKBOXES***
@@ -142,7 +156,7 @@ namespace CalorieCounterPresentation.LoginUI
         }
 
         // ***LOCAL METHODS***
-        private void ClearFields()
+        private void ClearRegistrationFormFields()
         {
             RegistrationFormUserMailTextBox.Clear();
             RegistrationFormUserPasswordTextBox.Clear();

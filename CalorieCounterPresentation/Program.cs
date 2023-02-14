@@ -1,5 +1,4 @@
 using CalorieCounterPresentation.LoginUI;
-using CalorieCounterPresentation.UserUI;
 
 namespace CalorieCounterPresentation
 {
@@ -16,5 +15,15 @@ namespace CalorieCounterPresentation
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginForm());
         }
+
+        // 14.02.2023
+
+        // password mail
+        // database tables
+
+        // 15.02.2023
+
+        // formlarý ekleme/düzenleme
+        // kýyas raporlarý
     }
 }

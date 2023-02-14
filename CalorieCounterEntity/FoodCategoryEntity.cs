@@ -27,6 +27,5 @@ namespace CalorieCounterEntity
         {
             FoodEntity = new HashSet<FoodEntity>();
         }
-
     }
 }

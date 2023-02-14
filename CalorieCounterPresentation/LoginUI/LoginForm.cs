@@ -58,10 +58,10 @@ namespace CalorieCounterPresentation.LoginUI
             _UserEntity.UserMail = LoginFormUserMailTextBox.Text;
             _UserEntity.UserPassword = LoginFormUserPasswordTextBox.Text;
 
-            bool _Logincheck = _UserService.UserLogin(_UserEntity);
-            if (_Logincheck == true)
+            bool _LoginCheck = _UserService.UserLogin(_UserEntity);
+            if (_LoginCheck)
             {
-                if (_UserEntity.UserMail == "admin")
+                if (_UserEntity.UserMail == "admin@gmail.com")
                 {
                     MainAdminForm _MainAdminform = new MainAdminForm();
                     _MainAdminform.Show();

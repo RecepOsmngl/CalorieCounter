@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CalorieCounterBusiness\BCalorieCounterBusiness.csproj" />
+    <ProjectReference Include="..\CalorieCounterBusiness\CalorieCounterBusiness.csproj" />
   </ItemGroup>
 
   <ItemGroup>

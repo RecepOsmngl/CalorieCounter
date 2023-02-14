@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CCalorieCounterDataAccess.Migrations
+namespace CalorieCounterDataAccess.Migrations
 {
     [DbContext(typeof(CalorieCounterContext))]
-    [Migration("20230207193844_Init")]
+    [Migration("20230213161255_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,9 +57,14 @@ namespace CCalorieCounterDataAccess.Migrations
                     b.Property<string>("FoodName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("PhotographID")
+                        .HasColumnType("int");
+
                     b.HasKey("FoodID");
 
                     b.HasIndex("FoodCategoryID");
+
+                    b.HasIndex("PhotographID");
 
                     b.ToTable("FoodEntityTable");
                 });
@@ -117,6 +122,25 @@ namespace CCalorieCounterDataAccess.Migrations
                     b.ToTable("MealEntityTable");
                 });
 
+            modelBuilder.Entity("CalorieCounterEntity.PhotographEntity", b =>
+                {
+                    b.Property<int>("PhotographID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PhotographID"), 1L, 1);
+
+                    b.Property<byte[]>("Photograph")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("PhotographName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PhotographID");
+
+                    b.ToTable("PhotographEntityTable");
+                });
+
             modelBuilder.Entity("CalorieCounterEntity.UserEntity", b =>
                 {
                     b.Property<int>("UserID")
@@ -159,7 +183,13 @@ namespace CCalorieCounterDataAccess.Migrations
                         .WithMany("FoodEntity")
                         .HasForeignKey("FoodCategoryID");
 
+                    b.HasOne("CalorieCounterEntity.PhotographEntity", "PhotographEntity")
+                        .WithMany("FoodEntity")
+                        .HasForeignKey("PhotographID");
+
                     b.Navigation("FoodCategoryEntity");
+
+                    b.Navigation("PhotographEntity");
                 });
 
             modelBuilder.Entity("CalorieCounterEntity.MealEntity", b =>
@@ -202,6 +232,11 @@ namespace CCalorieCounterDataAccess.Migrations
             modelBuilder.Entity("CalorieCounterEntity.MealCategoryEntity", b =>
                 {
                     b.Navigation("MealEntity");
+                });
+
+            modelBuilder.Entity("CalorieCounterEntity.PhotographEntity", b =>
+                {
+                    b.Navigation("FoodEntity");
                 });
 
             modelBuilder.Entity("CalorieCounterEntity.UserEntity", b =>

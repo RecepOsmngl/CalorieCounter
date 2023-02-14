@@ -40,6 +40,7 @@
             this.AdminMealCategoryFormDataGridView = new System.Windows.Forms.DataGridView();
             this.AdminMealCategoryFormLabel2 = new System.Windows.Forms.Label();
             this.NN2 = new System.Windows.Forms.Button();
+            this.UpdateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AdminMealCategoryFormDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,12 +192,26 @@
             this.NN2.TabIndex = 54;
             this.NN2.UseVisualStyleBackColor = false;
             // 
+            // UpdateButton
+            // 
+            this.UpdateButton.FlatAppearance.BorderSize = 0;
+            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.UpdateButton.ForeColor = System.Drawing.Color.Gray;
+            this.UpdateButton.Location = new System.Drawing.Point(632, 453);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(75, 35);
+            this.UpdateButton.TabIndex = 74;
+            this.UpdateButton.Text = "Update";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            // 
             // AdminMealCategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.AdminMealCategoryFormMealCategoryNameTextBox);
             this.Controls.Add(this.AdminMealCategoryFormSearchButton);
             this.Controls.Add(this.AdminMealCategoryFormDeleteButton);
@@ -234,5 +249,6 @@
         private DataGridView AdminMealCategoryFormDataGridView;
         private Label AdminMealCategoryFormLabel2;
         private Button NN2;
+        private Button UpdateButton;
     }
 }
