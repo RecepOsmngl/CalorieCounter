@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CloseButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.NN = new System.Windows.Forms.Button();
@@ -45,7 +46,10 @@
             this.AdminFoodFormFoodNameTextBox = new System.Windows.Forms.TextBox();
             this.AdminFoodFormFoodCategoryIDTextBox = new System.Windows.Forms.TextBox();
             this.AdminFoodFormFoodCalorieTextBox = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormDataGridView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CloseButton
@@ -130,6 +134,7 @@
             // AdminFoodFormDataGridView
             // 
             this.AdminFoodFormDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AdminFoodFormDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.AdminFoodFormDataGridView.Location = new System.Drawing.Point(12, 231);
             this.AdminFoodFormDataGridView.Name = "AdminFoodFormDataGridView";
             this.AdminFoodFormDataGridView.RowTemplate.Height = 25;
@@ -243,6 +248,19 @@
             this.AdminFoodFormFoodCalorieTextBox.Size = new System.Drawing.Size(225, 22);
             this.AdminFoodFormFoodCalorieTextBox.TabIndex = 42;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            // 
             // AdminFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -272,6 +290,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminFoodForm";
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormDataGridView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,5 +315,7 @@
         private TextBox AdminFoodFormFoodNameTextBox;
         private TextBox AdminFoodFormFoodCategoryIDTextBox;
         private TextBox AdminFoodFormFoodCalorieTextBox;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem refreshToolStripMenuItem;
     }
 }

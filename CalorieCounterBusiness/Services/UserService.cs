@@ -20,7 +20,7 @@ namespace CalorieCounterBusiness.Services
         // Login Form Methods
 
         /// <summary>
-        /// Checks the correctness of the username and password
+        /// Checks the correctness of the username and password, returns true if they are matched, else false.
         /// </summary>
         /// <param name="_UserEntity"></param>
         /// <returns></returns>
@@ -39,7 +39,7 @@ namespace CalorieCounterBusiness.Services
             }
         }
         /// <summary>
-        /// Checks the mail extension
+        /// Checks the user mail extension, returns true if they are matched, else false.
         /// </summary>
         /// <param name="_UserEntity"></param>
         /// <returns></returns>
@@ -75,6 +75,12 @@ namespace CalorieCounterBusiness.Services
 
 
         // Registration Form Methods
+
+        /// <summary>
+        /// Adds "UserEntity" to database, return true if succeded, else false.
+        /// </summary>
+        /// <param name="_UserEntity"></param>
+        /// <returns></returns>
         public bool AddUser(UserEntity _UserEntity)
         {
             _db.UserEntityTable.Add(_UserEntity);
@@ -90,6 +96,11 @@ namespace CalorieCounterBusiness.Services
             }
         }
 
+        /// <summary>
+        /// Checks user in the database, returns true if exists, else false.
+        /// </summary>
+        /// <param name="_UserEntity"></param>
+        /// <returns></returns>
         public bool CheckUserExistence(UserEntity _UserEntity)
         {
             var _result = _db.UserEntityTable.Where(x => x.UserMail == _UserEntity.UserMail).Count();
@@ -107,6 +118,10 @@ namespace CalorieCounterBusiness.Services
 
         // "ChechUserExistence" method defined in the registration form methods.
 
+        /// <summary>
+        /// Sends user password mail to user. 
+        /// </summary>
+        /// <param name="_UserEntity"></param>
         public void SendMail(UserEntity _UserEntity)
         {
             string _FromMail = "mucidim59@gmail.com";

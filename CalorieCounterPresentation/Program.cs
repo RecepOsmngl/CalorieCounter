@@ -20,11 +20,11 @@ namespace CalorieCounterPresentation
 
         // password mail
         // database tables
-        // github updates
 
         // 15.02.2023
 
-        // formlarý ekleme/düzenleme
-        // kýyas raporlarý
+        // food service
+        // food category service
+        // meal category service
     }
 }
