@@ -20,6 +20,7 @@ namespace CalorieCounterPresentation
 
         // password mail
         // database tables
+        // github updates
 
         // 15.02.2023
 
