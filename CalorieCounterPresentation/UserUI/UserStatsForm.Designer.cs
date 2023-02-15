@@ -202,6 +202,7 @@
             this.UserStatsFormDailyButton.TabIndex = 74;
             this.UserStatsFormDailyButton.Text = "Daily";
             this.UserStatsFormDailyButton.UseVisualStyleBackColor = false;
+            this.UserStatsFormDailyButton.Click += new System.EventHandler(this.UserStatsFormDailyButton_Click);
             // 
             // UserStatsFormLabel1
             // 

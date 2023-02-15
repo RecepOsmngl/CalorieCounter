@@ -28,5 +28,10 @@ namespace CalorieCounterPresentation.UserUI
             _MainUserForm.Show();
             this.Hide();
         }
+
+        private void UserStatsFormDailyButton_Click(object sender, EventArgs e)
+        {
+            // Selamlar git hub deneme
+        }
     }
 }
