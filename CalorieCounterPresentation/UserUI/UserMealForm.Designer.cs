@@ -32,7 +32,6 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.UserMealFormFoodIDTextBox = new System.Windows.Forms.TextBox();
-            this.UserMealFormMealTimeTextBox = new System.Windows.Forms.TextBox();
             this.UserMealFormMealCategoryIDTextBox = new System.Windows.Forms.TextBox();
             this.UserMealFormSearchButton = new System.Windows.Forms.Button();
             this.UserMealFormDeleteButton = new System.Windows.Forms.Button();
@@ -51,6 +50,7 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.UserMealFormLabel7 = new System.Windows.Forms.Label();
             this.UserMealFormLabel8 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.UserMealFormDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,13 +102,6 @@
             this.UserMealFormFoodIDTextBox.Name = "UserMealFormFoodIDTextBox";
             this.UserMealFormFoodIDTextBox.Size = new System.Drawing.Size(225, 22);
             this.UserMealFormFoodIDTextBox.TabIndex = 52;
-            // 
-            // UserMealFormMealTimeTextBox
-            // 
-            this.UserMealFormMealTimeTextBox.Location = new System.Drawing.Point(435, 90);
-            this.UserMealFormMealTimeTextBox.Name = "UserMealFormMealTimeTextBox";
-            this.UserMealFormMealTimeTextBox.Size = new System.Drawing.Size(225, 22);
-            this.UserMealFormMealTimeTextBox.TabIndex = 51;
             // 
             // UserMealFormMealCategoryIDTextBox
             // 
@@ -306,12 +299,20 @@
             this.UserMealFormLabel8.TabIndex = 62;
             this.UserMealFormLabel8.Text = "0 kcal";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(435, 88);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 63;
+            // 
             // UserMealForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.UserMealFormLabel8);
             this.Controls.Add(this.UserMealFormLabel7);
             this.Controls.Add(this.UpdateButton);
@@ -323,7 +324,6 @@
             this.Controls.Add(this.UserMealFormFoodPortionTextBox);
             this.Controls.Add(this.UserMealFormLabel4);
             this.Controls.Add(this.UserMealFormFoodIDTextBox);
-            this.Controls.Add(this.UserMealFormMealTimeTextBox);
             this.Controls.Add(this.UserMealFormMealCategoryIDTextBox);
             this.Controls.Add(this.UserMealFormSearchButton);
             this.Controls.Add(this.UserMealFormDeleteButton);
@@ -352,7 +352,6 @@
         private Button CloseButton;
         private Button BackButton;
         private TextBox UserMealFormFoodIDTextBox;
-        private TextBox UserMealFormMealTimeTextBox;
         private TextBox UserMealFormMealCategoryIDTextBox;
         private Button UserMealFormSearchButton;
         private Button UserMealFormDeleteButton;
@@ -371,5 +370,6 @@
         private Button UpdateButton;
         private Label UserMealFormLabel7;
         private Label UserMealFormLabel8;
+        private DateTimePicker dateTimePicker1;
     }
 }
