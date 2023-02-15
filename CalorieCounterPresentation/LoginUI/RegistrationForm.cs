@@ -76,8 +76,15 @@ namespace CalorieCounterPresentation.LoginUI
                 _UserEntity.UserHeight = _DefaultHeight;
             }
 
-            _UserEntity.UserGender = RegistrationFormUserGenderTextBox.Text.Trim();
-
+            
+            if (RegistrationFormUserGenderComboBox.SelectedItem != null)
+            {
+                _UserEntity.UserGender = RegistrationFormUserGenderComboBox.SelectedItem.ToString();
+            }
+            else
+            {
+                _UserEntity.UserGender = null;
+            }
 
 
 
@@ -165,7 +172,6 @@ namespace CalorieCounterPresentation.LoginUI
             RegistrationFormUserSurnameTextBox.Clear();
             RegistrationFormUserHeightTextBox.Clear();
             RegistrationFormUserWeightTextBox.Clear();
-            RegistrationFormUserGenderTextBox.Clear();
         }
 
         // Password Check
@@ -225,6 +231,11 @@ namespace CalorieCounterPresentation.LoginUI
                 IsDigitCheck = false;
                 PasswordCheckNumeralLabel.ForeColor = Color.FromArgb(249, 89, 83);
             }
+        }
+
+        private void RegistrationFormUserGenderTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

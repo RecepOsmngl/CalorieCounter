@@ -49,7 +49,6 @@
             this.RegistrationFormUserSurnameTextBox = new System.Windows.Forms.TextBox();
             this.RegistrationFormUserHeightTextBox = new System.Windows.Forms.TextBox();
             this.RegistrationFormUserWeightTextBox = new System.Windows.Forms.TextBox();
-            this.RegistrationFormUserGenderTextBox = new System.Windows.Forms.TextBox();
             this.RegisterButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
@@ -58,6 +57,7 @@
             this.PasswordCheckLowercaseLabel = new System.Windows.Forms.Label();
             this.PasswordCheckNumeralLabel = new System.Windows.Forms.Label();
             this.PasswordCheckUppercaseLabel = new System.Windows.Forms.Label();
+            this.RegistrationFormUserGenderComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.RegistrationFormPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -253,14 +253,6 @@
             this.RegistrationFormUserWeightTextBox.Size = new System.Drawing.Size(229, 22);
             this.RegistrationFormUserWeightTextBox.TabIndex = 19;
             // 
-            // RegistrationFormUserGenderTextBox
-            // 
-            this.RegistrationFormUserGenderTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
-            this.RegistrationFormUserGenderTextBox.Location = new System.Drawing.Point(483, 384);
-            this.RegistrationFormUserGenderTextBox.Name = "RegistrationFormUserGenderTextBox";
-            this.RegistrationFormUserGenderTextBox.Size = new System.Drawing.Size(229, 22);
-            this.RegistrationFormUserGenderTextBox.TabIndex = 20;
-            // 
             // RegisterButton
             // 
             this.RegisterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(89)))), ((int)(((byte)(83)))));
@@ -356,12 +348,24 @@
             this.PasswordCheckUppercaseLabel.TabIndex = 29;
             this.PasswordCheckUppercaseLabel.Text = "- Uppercase letter (A-Z)";
             // 
+            // RegistrationFormUserGenderComboBox
+            // 
+            this.RegistrationFormUserGenderComboBox.FormattingEnabled = true;
+            this.RegistrationFormUserGenderComboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.RegistrationFormUserGenderComboBox.Location = new System.Drawing.Point(483, 384);
+            this.RegistrationFormUserGenderComboBox.Name = "RegistrationFormUserGenderComboBox";
+            this.RegistrationFormUserGenderComboBox.Size = new System.Drawing.Size(229, 24);
+            this.RegistrationFormUserGenderComboBox.TabIndex = 30;
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.RegistrationFormUserGenderComboBox);
             this.Controls.Add(this.PasswordCheckUppercaseLabel);
             this.Controls.Add(this.PasswordCheckNumeralLabel);
             this.Controls.Add(this.PasswordCheckLowercaseLabel);
@@ -370,7 +374,6 @@
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.RegisterButton);
-            this.Controls.Add(this.RegistrationFormUserGenderTextBox);
             this.Controls.Add(this.RegistrationFormUserWeightTextBox);
             this.Controls.Add(this.RegistrationFormUserHeightTextBox);
             this.Controls.Add(this.RegistrationFormUserSurnameTextBox);
@@ -424,7 +427,6 @@
         private TextBox RegistrationFormUserSurnameTextBox;
         private TextBox RegistrationFormUserHeightTextBox;
         private TextBox RegistrationFormUserWeightTextBox;
-        private TextBox RegistrationFormUserGenderTextBox;
         private Button RegisterButton;
         private Button BackButton;
         private Button CloseButton;
@@ -433,5 +435,6 @@
         private Label PasswordCheckLowercaseLabel;
         private Label PasswordCheckNumeralLabel;
         private Label PasswordCheckUppercaseLabel;
+        private ComboBox RegistrationFormUserGenderComboBox;
     }
 }
