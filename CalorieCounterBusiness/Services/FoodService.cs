@@ -24,6 +24,8 @@ namespace CalorieCounterBusiness.Services
         // AddFood ve FoodAdd meselesi, formtxt, txtform
         // return true if exists mantıksal olarak daha iyi gibi, varsa true döndürmek.
         // isimleri değiştirmeye gerek yokmuş, dün akşam konuşmuştuk.
+        // github
+        // lan oraya tıklamaaa
 
 
         // Yemek listesini databaseden liste halinde getiren ve liste olarak döndüren method.
