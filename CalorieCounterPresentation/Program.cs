@@ -26,5 +26,11 @@ namespace CalorieCounterPresentation
         // food service
         // food category service
         // meal category service
+
+        // 15.02.2023
+
+        // adminfoodcategoryform cs.
+        // adminfoodform cs.
+        // adminmealcategoryform cs.
     }
 }
