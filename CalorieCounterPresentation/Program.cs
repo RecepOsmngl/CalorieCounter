@@ -22,7 +22,7 @@ namespace CalorieCounterPresentation
         // database tables
 
         // 15.02.2023
-
+        
         // food service
         // food category service
         // meal category service
@@ -36,5 +36,9 @@ namespace CalorieCounterPresentation
         // 15.02.2023
         
         // hüseyin, beste, github deneme 
+
+        //15.02.2023
+
+        //Hüseyin yazýyor
     }
 }
