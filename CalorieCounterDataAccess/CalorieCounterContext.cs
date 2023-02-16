@@ -27,9 +27,9 @@ namespace CalorieCounterDataAccess
         // OnConfiguring
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8BU397I;Initial Catalog=CalorieCounterDB;user Id=sa;Password=asdqwe123");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8BU397I;Initial Catalog=CalorieCounterDB;user Id=sa;Password=asdqwe123");
             //base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-FJAHODS;Initial Catalog=CalorieCounterDB;user Id=sa;Password=Kurumsal123");
+            //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-FJAHODS;Initial Catalog=CalorieCounterDB;user Id=sa;Password=Kurumsal123");
             base.OnConfiguring(optionsBuilder);
         }
 

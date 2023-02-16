@@ -297,6 +297,7 @@
             this.LoadImageButton.TabIndex = 44;
             this.LoadImageButton.Text = "Load Image";
             this.LoadImageButton.UseVisualStyleBackColor = false;
+            this.LoadImageButton.Click += new System.EventHandler(this.LoadImageButton_Click);
             // 
             // AdminFoodForm
             // 

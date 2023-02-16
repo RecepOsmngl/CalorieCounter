@@ -24,9 +24,21 @@ namespace CalorieCounterPresentation.LoginUI
         // ***SERVICES***
         UserService _UserService = new UserService();
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        public void LoginForm_Load(object sender, EventArgs e)
         {
+            // CheckEnter(object sender, System.Windows.Forms.KeyEventArgs e);
         }
+
+        //public void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == (char)13)
+        //    {
+        //        LoginButton_Click(object sender, EventArgs e);
+        //    }
+        //}
+
+
+
 
         // ***BUTTONS***
         // Close Button

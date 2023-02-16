@@ -323,5 +323,29 @@ namespace CalorieCounterPresentation.AdminUI
         {
 
         }
+
+        private void LoadImageButton_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the FolderBrowserDialog class
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            // Show the FolderBrowserDialog to the user and get the result
+            DialogResult result = folderBrowserDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                // Get the path of the selected folder
+                string folderPath = folderBrowserDialog.SelectedPath;
+
+                // Get a list of all image files in the selected folder
+                string[] imageFiles = Directory.GetFiles(folderPath, "*.jpg");
+
+                // Load the first image in the list into a PictureBox control
+                if (imageFiles.Length > 0)
+                {
+                    AdminFoodFormPictureBox.ImageLocation = imageFiles[0];
+                }
+            }
+        }
     }
 }
