@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CalorieCounterDataAccess\CalorieCounterDataAccess.csproj" />
-    <ProjectReference Include="..\CalorieCounterDataAccess\CCalorieCounterDataAccess.csproj" />
   </ItemGroup>
 
 </Project>
