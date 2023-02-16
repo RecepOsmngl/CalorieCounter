@@ -265,6 +265,7 @@
             this.Name = "UserStatsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserStatsForm";
+            this.Load += new System.EventHandler(this.UserStatsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserStatsFormDataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserStatsFormDataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -340,6 +340,7 @@
             this.Name = "UserMealForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserMealForm";
+            this.Load += new System.EventHandler(this.UserMealForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserMealFormDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

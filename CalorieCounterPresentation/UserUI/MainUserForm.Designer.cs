@@ -133,6 +133,7 @@
             this.Name = "MainUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainUserForm";
+            this.Load += new System.EventHandler(this.MainUserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MainUserFormPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

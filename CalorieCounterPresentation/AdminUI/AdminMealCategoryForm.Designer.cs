@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.NN = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
@@ -41,7 +42,10 @@
             this.AdminMealCategoryFormLabel2 = new System.Windows.Forms.Label();
             this.NN2 = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.AdminMealCategoryFormDataGridView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // NN
@@ -106,6 +110,7 @@
             this.AdminMealCategoryFormSearchButton.TabIndex = 61;
             this.AdminMealCategoryFormSearchButton.Text = "Search";
             this.AdminMealCategoryFormSearchButton.UseVisualStyleBackColor = false;
+            this.AdminMealCategoryFormSearchButton.Click += new System.EventHandler(this.Click);
             // 
             // AdminMealCategoryFormDeleteButton
             // 
@@ -120,6 +125,7 @@
             this.AdminMealCategoryFormDeleteButton.TabIndex = 60;
             this.AdminMealCategoryFormDeleteButton.Text = "Delete";
             this.AdminMealCategoryFormDeleteButton.UseVisualStyleBackColor = false;
+            this.AdminMealCategoryFormDeleteButton.Click += new System.EventHandler(this.Click);
             // 
             // AdminMealCategoryFormEditButton
             // 
@@ -134,6 +140,7 @@
             this.AdminMealCategoryFormEditButton.TabIndex = 59;
             this.AdminMealCategoryFormEditButton.Text = "Edit";
             this.AdminMealCategoryFormEditButton.UseVisualStyleBackColor = false;
+            this.AdminMealCategoryFormEditButton.Click += new System.EventHandler(this.Click);
             // 
             // AdminMealCategoryFormAddButton
             // 
@@ -148,6 +155,7 @@
             this.AdminMealCategoryFormAddButton.TabIndex = 58;
             this.AdminMealCategoryFormAddButton.Text = "Add";
             this.AdminMealCategoryFormAddButton.UseVisualStyleBackColor = false;
+            this.AdminMealCategoryFormAddButton.Click += new System.EventHandler(this.Click);
             // 
             // AdminMealCategoryFormLabel1
             // 
@@ -161,12 +169,14 @@
             // 
             // AdminMealCategoryFormDataGridView
             // 
+            this.AdminMealCategoryFormDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AdminMealCategoryFormDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AdminMealCategoryFormDataGridView.Location = new System.Drawing.Point(12, 231);
             this.AdminMealCategoryFormDataGridView.Name = "AdminMealCategoryFormDataGridView";
             this.AdminMealCategoryFormDataGridView.RowTemplate.Height = 25;
             this.AdminMealCategoryFormDataGridView.Size = new System.Drawing.Size(729, 216);
             this.AdminMealCategoryFormDataGridView.TabIndex = 56;
+            this.AdminMealCategoryFormDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdminMealCategoryFormDataGridView_CellClick);
             // 
             // AdminMealCategoryFormLabel2
             // 
@@ -205,6 +215,20 @@
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.CmsClick);
+            // 
             // AdminMealCategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -230,6 +254,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminMealCategoryForm";
             ((System.ComponentModel.ISupportInitialize)(this.AdminMealCategoryFormDataGridView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +275,7 @@
         private Label AdminMealCategoryFormLabel2;
         private Button NN2;
         private Button UpdateButton;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem refreshToolStripMenuItem;
     }
 }

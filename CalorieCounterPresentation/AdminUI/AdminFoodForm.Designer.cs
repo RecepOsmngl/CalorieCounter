@@ -36,6 +36,8 @@
             this.AdminFoodFormLabel4 = new System.Windows.Forms.Label();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.AdminFoodFormDataGridView = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdminFoodFormLabel1 = new System.Windows.Forms.Label();
             this.AdminFoodFormLabel2 = new System.Windows.Forms.Label();
             this.AdminFoodFormLabel3 = new System.Windows.Forms.Label();
@@ -46,10 +48,10 @@
             this.AdminFoodFormFoodNameTextBox = new System.Windows.Forms.TextBox();
             this.AdminFoodFormFoodCategoryIDTextBox = new System.Windows.Forms.TextBox();
             this.AdminFoodFormFoodCalorieTextBox = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdminFoodFormPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormDataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // CloseButton
@@ -133,6 +135,7 @@
             // 
             // AdminFoodFormDataGridView
             // 
+            this.AdminFoodFormDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AdminFoodFormDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AdminFoodFormDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.AdminFoodFormDataGridView.Location = new System.Drawing.Point(12, 231);
@@ -140,6 +143,21 @@
             this.AdminFoodFormDataGridView.RowTemplate.Height = 25;
             this.AdminFoodFormDataGridView.Size = new System.Drawing.Size(729, 216);
             this.AdminFoodFormDataGridView.TabIndex = 32;
+            this.AdminFoodFormDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdminFoodFormDataGridView_CellClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(114, 26);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.CsmClick);
             // 
             // AdminFoodFormLabel1
             // 
@@ -184,6 +202,7 @@
             this.AdminFoodFormAddButton.TabIndex = 36;
             this.AdminFoodFormAddButton.Text = "Add";
             this.AdminFoodFormAddButton.UseVisualStyleBackColor = false;
+            this.AdminFoodFormAddButton.Click += new System.EventHandler(this.Click);
             // 
             // AdminFoodFormEditButton
             // 
@@ -198,6 +217,7 @@
             this.AdminFoodFormEditButton.TabIndex = 37;
             this.AdminFoodFormEditButton.Text = "Edit";
             this.AdminFoodFormEditButton.UseVisualStyleBackColor = false;
+            this.AdminFoodFormEditButton.Click += new System.EventHandler(this.Click);
             // 
             // AdminFoodFormDeleteButton
             // 
@@ -212,6 +232,7 @@
             this.AdminFoodFormDeleteButton.TabIndex = 38;
             this.AdminFoodFormDeleteButton.Text = "Delete";
             this.AdminFoodFormDeleteButton.UseVisualStyleBackColor = false;
+            this.AdminFoodFormDeleteButton.Click += new System.EventHandler(this.Click);
             // 
             // AdminFoodFormSearchButton
             // 
@@ -226,6 +247,7 @@
             this.AdminFoodFormSearchButton.TabIndex = 39;
             this.AdminFoodFormSearchButton.Text = "Search";
             this.AdminFoodFormSearchButton.UseVisualStyleBackColor = false;
+            this.AdminFoodFormSearchButton.Click += new System.EventHandler(this.Click);
             // 
             // AdminFoodFormFoodNameTextBox
             // 
@@ -248,18 +270,13 @@
             this.AdminFoodFormFoodCalorieTextBox.Size = new System.Drawing.Size(225, 22);
             this.AdminFoodFormFoodCalorieTextBox.TabIndex = 42;
             // 
-            // contextMenuStrip1
+            // AdminFoodFormPictureBox
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.AdminFoodFormPictureBox.Location = new System.Drawing.Point(12, 53);
+            this.AdminFoodFormPictureBox.Name = "AdminFoodFormPictureBox";
+            this.AdminFoodFormPictureBox.Size = new System.Drawing.Size(265, 115);
+            this.AdminFoodFormPictureBox.TabIndex = 43;
+            this.AdminFoodFormPictureBox.TabStop = false;
             // 
             // AdminFoodForm
             // 
@@ -267,6 +284,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.AdminFoodFormPictureBox);
             this.Controls.Add(this.AdminFoodFormFoodCalorieTextBox);
             this.Controls.Add(this.AdminFoodFormFoodCategoryIDTextBox);
             this.Controls.Add(this.AdminFoodFormFoodNameTextBox);
@@ -289,8 +307,10 @@
             this.Name = "AdminFoodForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminFoodForm";
+            this.Load += new System.EventHandler(this.AdminFoodForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormDataGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +337,6 @@
         private TextBox AdminFoodFormFoodCalorieTextBox;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem refreshToolStripMenuItem;
+        private PictureBox AdminFoodFormPictureBox;
     }
 }

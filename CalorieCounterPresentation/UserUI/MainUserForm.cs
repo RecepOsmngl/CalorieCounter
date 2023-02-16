@@ -43,5 +43,10 @@ namespace CalorieCounterPresentation.UserUI
             _UserStatsForm.Show();
             this.Hide();
         }
+
+        private void MainUserForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

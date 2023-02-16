@@ -248,6 +248,7 @@ namespace CalorieCounterPresentation.AdminUI
             AdminFoodFormDataGridView.DataSource = _foodService.FoodEntitie();
             AdminFoodFormDataGridView.Columns["MealEntity"].Visible = false;
             AdminFoodFormDataGridView.Columns["FoodCategoryEntity"].Visible = false;
+            AdminFoodFormDataGridView.Columns["PhotographEntity"].Visible = false;
         }
         //Textboxları temizleyen fonksiyon.
         private void FoodTextBoxClear()

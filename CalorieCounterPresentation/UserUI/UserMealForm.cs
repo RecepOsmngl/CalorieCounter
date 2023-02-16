@@ -28,5 +28,10 @@ namespace CalorieCounterPresentation.UserUI
             _MainUserForm.Show();
             this.Hide();
         }
+
+        private void UserMealForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

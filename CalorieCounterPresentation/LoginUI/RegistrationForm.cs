@@ -237,5 +237,10 @@ namespace CalorieCounterPresentation.LoginUI
         {
 
         }
+
+        private void RegistrationForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

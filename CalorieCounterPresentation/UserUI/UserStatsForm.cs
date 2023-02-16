@@ -33,5 +33,10 @@ namespace CalorieCounterPresentation.UserUI
         {
             // Selamlar git hub deneme
         }
+
+        private void UserStatsForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
