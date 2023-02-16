@@ -43,7 +43,7 @@
             this.NN2 = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.csmRefresh = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodCategoryFormDataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -171,6 +171,7 @@
             // 
             this.AdminFoodCategoryFormDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AdminFoodCategoryFormDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AdminFoodCategoryFormDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.AdminFoodCategoryFormDataGridView.Location = new System.Drawing.Point(12, 231);
             this.AdminFoodCategoryFormDataGridView.Name = "AdminFoodCategoryFormDataGridView";
             this.AdminFoodCategoryFormDataGridView.RowTemplate.Height = 25;
@@ -218,16 +219,16 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshToolStripMenuItem});
+            this.csmRefresh});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(114, 26);
             // 
-            // refreshToolStripMenuItem
+            // csmRefresh
             // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.CsmClick);
+            this.csmRefresh.Name = "csmRefresh";
+            this.csmRefresh.Size = new System.Drawing.Size(113, 22);
+            this.csmRefresh.Text = "Refresh";
+            this.csmRefresh.Click += new System.EventHandler(this.CsmClick);
             // 
             // AdminFoodCategoryForm
             // 
@@ -253,6 +254,7 @@
             this.Name = "AdminFoodCategoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminFoodCategoryForm";
+            this.Load += new System.EventHandler(this.AdminFoodCategoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodCategoryFormDataGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -276,6 +278,6 @@
         private Button NN2;
         private Button UpdateButton;
         private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem refreshToolStripMenuItem;
+        private ToolStripMenuItem csmRefresh;
     }
 }

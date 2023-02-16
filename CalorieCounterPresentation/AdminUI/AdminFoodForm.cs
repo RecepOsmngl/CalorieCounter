@@ -19,7 +19,7 @@ namespace CalorieCounterPresentation.AdminUI
 
         CalorieCounterContext _db;
         FoodService _foodService = new FoodService();
-        FoodEntity _foodEntity = new FoodEntity();
+        FoodEntity _foodEntity ;
         public AdminFoodForm()
         {
             InitializeComponent();
@@ -76,6 +76,7 @@ namespace CalorieCounterPresentation.AdminUI
             {
                 if (!string.IsNullOrWhiteSpace(foodName))
                 {
+                    _foodEntity = new FoodEntity();
                     _foodEntity.FoodName = foodName;
                     List<FoodEntity> IsCheck = new List<FoodEntity>();
                     IsCheck = _foodService.FoodSearch(_foodEntity);
@@ -114,6 +115,7 @@ namespace CalorieCounterPresentation.AdminUI
 
             try
             {
+                _foodEntity = new FoodEntity();
                 _foodEntity.FoodID = id;
 
 
@@ -150,6 +152,7 @@ namespace CalorieCounterPresentation.AdminUI
             {
                 if (!string.IsNullOrWhiteSpace(foodName) && foodCategoryId != null && foodCalorie != null)
                 {
+                    _foodEntity = new FoodEntity();
                     _foodEntity.FoodID = id;
                     _foodEntity.FoodName = foodName;
                     _foodEntity.FoodCategoryID = foodCategoryId;
@@ -188,7 +191,8 @@ namespace CalorieCounterPresentation.AdminUI
             AdminFoodFormFoodNameTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[1].Value.ToString();
             id = int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[0].Value.ToString());
             AdminFoodFormFoodCategoryIDTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString();
-            AdminFoodFormFoodCalorieTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[3].Value.ToString();
+            AdminFoodFormFoodCalorieTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[4].Value.ToString();
+            
         }
         //Ürün ekleme fonksiyonu. Add butonuna tıklandığında çalışıyor.
         private void FoodAdd()
@@ -202,6 +206,7 @@ namespace CalorieCounterPresentation.AdminUI
             {
                 if (!string.IsNullOrWhiteSpace(foodName) && foodCategoryId != null && foodCalorie != null)
                 {
+                    _foodEntity = new FoodEntity();
                     _foodEntity.FoodName = foodName;
                     _foodEntity.FoodCategoryID = foodCategoryId;
                     _foodEntity.FoodCalorie = foodCalorie;
@@ -249,6 +254,7 @@ namespace CalorieCounterPresentation.AdminUI
             AdminFoodFormDataGridView.Columns["MealEntity"].Visible = false;
             AdminFoodFormDataGridView.Columns["FoodCategoryEntity"].Visible = false;
             AdminFoodFormDataGridView.Columns["PhotographEntity"].Visible = false;
+            AdminFoodFormDataGridView.Columns["PhotographID"].Visible = false;
         }
         //Textboxları temizleyen fonksiyon.
         private void FoodTextBoxClear()

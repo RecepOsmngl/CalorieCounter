@@ -37,7 +37,7 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.AdminFoodFormDataGridView = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.csmRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.AdminFoodFormLabel1 = new System.Windows.Forms.Label();
             this.AdminFoodFormLabel2 = new System.Windows.Forms.Label();
             this.AdminFoodFormLabel3 = new System.Windows.Forms.Label();
@@ -148,16 +148,16 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshToolStripMenuItem});
+            this.csmRefresh});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(114, 26);
             // 
-            // refreshToolStripMenuItem
+            // csmRefresh
             // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.CsmClick);
+            this.csmRefresh.Name = "csmRefresh";
+            this.csmRefresh.Size = new System.Drawing.Size(180, 22);
+            this.csmRefresh.Text = "Refresh";
+            this.csmRefresh.Click += new System.EventHandler(this.CsmClick);
             // 
             // AdminFoodFormLabel1
             // 
@@ -336,7 +336,7 @@
         private TextBox AdminFoodFormFoodCategoryIDTextBox;
         private TextBox AdminFoodFormFoodCalorieTextBox;
         private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem refreshToolStripMenuItem;
+        private ToolStripMenuItem csmRefresh;
         private PictureBox AdminFoodFormPictureBox;
     }
 }

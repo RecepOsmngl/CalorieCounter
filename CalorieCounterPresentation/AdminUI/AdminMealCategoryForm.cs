@@ -18,7 +18,7 @@ namespace CalorieCounterPresentation.AdminUI
     {
         CalorieCounterContext _db;
         MealCategoryService _mealCategoryService = new MealCategoryService();
-        MealCategoryEntity _mealCategory = new MealCategoryEntity();
+        MealCategoryEntity _mealCategory ;
 
         public AdminMealCategoryForm()
         {
@@ -84,6 +84,7 @@ namespace CalorieCounterPresentation.AdminUI
             {
                 if (!string.IsNullOrWhiteSpace(mealCategoryName))
                 {
+                    _mealCategory = new MealCategoryEntity();
                     _mealCategory.MealCategoryName = mealCategoryName;
                     List<MealCategoryEntity> _IsSearched = new List<MealCategoryEntity>();
                     _IsSearched = _mealCategoryService._MealCategorySearch(_mealCategory);
@@ -114,6 +115,7 @@ namespace CalorieCounterPresentation.AdminUI
             string mealCategoryName = AdminMealCategoryFormMealCategoryNameTextBox.Text.Trim();
             try
             {
+                _mealCategory = new MealCategoryEntity();
                 _mealCategory.MealCategoryName = mealCategoryName;
                 _mealCategory.MealCategoryID = id;
                 bool _IsDeleted = _mealCategoryService._MealCategoryDelete(_mealCategory);
@@ -143,6 +145,7 @@ namespace CalorieCounterPresentation.AdminUI
             {
                 if (!string.IsNullOrWhiteSpace(mealCategoryName))
                 {
+                    _mealCategory = new MealCategoryEntity();
                     _mealCategory.MealCategoryID = id;
                     _mealCategory.MealCategoryName = mealCategoryName;
                     bool _IsEdit = _mealCategoryService._MealCategoryEdit(_mealCategory);
@@ -177,6 +180,7 @@ namespace CalorieCounterPresentation.AdminUI
             {
                 if (!string.IsNullOrWhiteSpace(mealCategoryName))
                 {
+                    _mealCategory = new MealCategoryEntity();
                     _mealCategory.MealCategoryName = mealCategoryName;
                     bool _IsCheck = _mealCategoryService._MealCategoryAddIsCheck(_mealCategory);
                     if (_IsCheck)
@@ -233,5 +237,7 @@ namespace CalorieCounterPresentation.AdminUI
         {
 
         }
+
+        
     }
 }

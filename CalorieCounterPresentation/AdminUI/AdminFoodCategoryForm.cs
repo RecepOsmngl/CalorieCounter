@@ -18,7 +18,7 @@ namespace CalorieCounterPresentation.AdminUI
     {
         CalorieCounterContext _db;
         FoodCategoryService _foodCategoryService = new FoodCategoryService();
-        FoodCategoryEntity _foodCategoryEntity = new FoodCategoryEntity();
+        FoodCategoryEntity _foodCategoryEntity;
         public AdminFoodCategoryForm()
         {
             InitializeComponent();
@@ -76,6 +76,7 @@ namespace CalorieCounterPresentation.AdminUI
             {
                 if (!string.IsNullOrWhiteSpace(foodName))
                 {
+                    _foodCategoryEntity = new FoodCategoryEntity();
                     _foodCategoryEntity.FoodCategoryName = foodName;
                     List<FoodCategoryEntity> IsCheck = new List<FoodCategoryEntity>();
                     IsCheck = _foodCategoryService.FoodCategorySearch(_foodCategoryEntity);
@@ -114,6 +115,7 @@ namespace CalorieCounterPresentation.AdminUI
 
             try
             {
+                _foodCategoryEntity = new FoodCategoryEntity();
                 _foodCategoryEntity.FoodCategoryID = id;
 
 
@@ -148,6 +150,7 @@ namespace CalorieCounterPresentation.AdminUI
             {
                 if (!string.IsNullOrWhiteSpace(foodName))
                 {
+                    _foodCategoryEntity = new FoodCategoryEntity();
                     _foodCategoryEntity.FoodCategoryID = id;
                     _foodCategoryEntity.FoodCategoryName = foodName;
 
@@ -199,6 +202,7 @@ namespace CalorieCounterPresentation.AdminUI
             {
                 if (!string.IsNullOrWhiteSpace(foodName))
                 {
+                    _foodCategoryEntity = new FoodCategoryEntity();
                     _foodCategoryEntity.FoodCategoryName = foodName;
                     bool IsCheck = _foodCategoryService.FoodCategoryAddIsCheck(_foodCategoryEntity);
                     if (IsCheck)
@@ -262,5 +266,7 @@ namespace CalorieCounterPresentation.AdminUI
             FoodFill();
             FoodTextBoxClear();
         }
+
+       
     }
 }
