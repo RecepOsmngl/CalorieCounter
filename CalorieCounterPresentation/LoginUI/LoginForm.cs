@@ -28,7 +28,7 @@ namespace CalorieCounterPresentation.LoginUI
         {
             // CheckEnter(object sender, System.Windows.Forms.KeyEventArgs e);
         }
-
+        //Button button = (Button)sender
         //public void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
         //{
         //    if (e.KeyChar == (char)13)

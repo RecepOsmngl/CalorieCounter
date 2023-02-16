@@ -1,6 +1,8 @@
 ﻿using CalorieCounterBusiness.Services;
 using CalorieCounterDataAccess;
 using CalorieCounterEntity;
+using CalorieCounterPresentation.Properties;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -193,7 +195,13 @@ namespace CalorieCounterPresentation.AdminUI
             id = int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[0].Value.ToString());
             AdminFoodFormFoodCategoryNameTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString();
             AdminFoodFormFoodCalorieTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[4].Value.ToString();
+
             
+            //var _PhotographID = AdminFoodFormDataGridView.CurrentRow.Cells["PhotographID"]; // cells.value.tostring();
+            //var _PhotoLocation = _db.PhotographEntityTable.Where(x => x.PhotographID == _PhotographID).Select();
+            // pathstring = _db.PhotographEntityTable.Where(x => x.Photo)
+            // AdminFoodFormPictureBox.Image = Image.FromFile(pathstring);
+
         }
         //Ürün ekleme fonksiyonu. Add butonuna tıklandığında çalışıyor.
         private void FoodAdd()
@@ -326,26 +334,70 @@ namespace CalorieCounterPresentation.AdminUI
 
         private void LoadImageButton_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the FolderBrowserDialog class
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            # region // folder browser dialong try
+            //// Create a new instance of the FolderBrowserDialog class
+            //FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
-            // Show the FolderBrowserDialog to the user and get the result
-            DialogResult result = folderBrowserDialog.ShowDialog();
+            //// Show the FolderBrowserDialog to the user and get the result
+            //DialogResult result = folderBrowserDialog.ShowDialog();
 
-            if (result == DialogResult.OK)
+            //if (result == DialogResult.OK)
+            //{
+            //    // Get the path of the selected folder
+            //    string folderPath = folderBrowserDialog.SelectedPath;
+
+            //    // Get a list of all image files in the selected folder
+            //    string[] imageFiles = Directory.GetFiles(folderPath, "*.*")
+            //                        .Where(file => file.ToLower().EndsWith(".png") ||
+            //                                       file.ToLower().EndsWith(".jpg") ||
+            //                                       file.ToLower().EndsWith(".jpeg"))
+            //                        .ToArray();
+
+            //    // Load the first image in the list into a PictureBox control
+            //    if (imageFiles.Length > 0)
+            //    {
+            //        AdminFoodFormPictureBox.ImageLocation = imageFiles[0];
+            //    }
+            //}
+            #endregion
+
+            OpenFileDialog Open = new OpenFileDialog();
+            if(Open.ShowDialog() == DialogResult.OK)
             {
-                // Get the path of the selected folder
-                string folderPath = folderBrowserDialog.SelectedPath;
-
-                // Get a list of all image files in the selected folder
-                string[] imageFiles = Directory.GetFiles(folderPath, "*.jpg");
-
-                // Load the first image in the list into a PictureBox control
-                if (imageFiles.Length > 0)
-                {
-                    AdminFoodFormPictureBox.ImageLocation = imageFiles[0];
-                }
+                AdminFoodFormPictureBox.ImageLocation = Open.FileName;
+                // AdminFoodFormPictureBox.Resize = 
             }
+
+        }
+
+        // geçici buton fotoğraf deneme işlemleri için 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (var _db = new CalorieCounterContext())
+            {
+                // Select the binary data from the photograph column where the ID is 1
+                // var imagedata1 = _db.PhotographEntityTable
+                //    .Where(t => t.PhotographID == 1)
+                //    .Select(t => t.Photograph)
+                //    .First();
+
+                // byte[] imagedata2 = Encoding.UTF8.GetBytes(imagedata1);
+                // C:\Users\mertk\OneDrive\Masaüstü\BAB Proje\Resources\photos\Absinthe.png
+
+                var pathstring = Path.Combine("C:\\Users\\mertk\\OneDrive\\Masaüstü\\BAB Proje\\Resources\\photos\\Absinthe.png");
+
+                // Load the binary image data into an Image object
+                // MemoryStream memoryStream = new MemoryStream(imagedata2);
+                // Image image = Image.FromStream(memoryStream);
+
+                // Display the image in a PictureBox control
+                AdminFoodFormPictureBox.Image = Image.FromFile(pathstring);
+            }
+            //            byte[] imageData = ... // binary data of the image
+            //            MemoryStream memoryStream = new MemoryStream(imageData);
+            //            Image image = Image.FromStream(memoryStream);
+
+            // Encoding.UTF8.GetBytes yemiyor!
         }
     }
 }
