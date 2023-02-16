@@ -49,6 +49,7 @@
             this.AdminFoodFormFoodCategoryNameTextBox = new System.Windows.Forms.TextBox();
             this.AdminFoodFormFoodCalorieTextBox = new System.Windows.Forms.TextBox();
             this.AdminFoodFormPictureBox = new System.Windows.Forms.PictureBox();
+            this.LoadImageButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormDataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormPictureBox)).BeginInit();
@@ -144,6 +145,7 @@
             this.AdminFoodFormDataGridView.Size = new System.Drawing.Size(729, 216);
             this.AdminFoodFormDataGridView.TabIndex = 32;
             this.AdminFoodFormDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdminFoodFormDataGridView_CellClick);
+            this.AdminFoodFormDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdminFoodFormDataGridView_CellContentClick);
             // 
             // contextMenuStrip1
             // 
@@ -255,6 +257,7 @@
             this.AdminFoodFormFoodNameTextBox.Name = "AdminFoodFormFoodNameTextBox";
             this.AdminFoodFormFoodNameTextBox.Size = new System.Drawing.Size(225, 22);
             this.AdminFoodFormFoodNameTextBox.TabIndex = 40;
+            this.AdminFoodFormFoodNameTextBox.TextChanged += new System.EventHandler(this.AdminFoodFormFoodNameTextBox_TextChanged);
             // 
             // AdminFoodFormFoodCategoryNameTextBox
             // 
@@ -277,9 +280,23 @@
             // 
             this.AdminFoodFormPictureBox.Location = new System.Drawing.Point(12, 53);
             this.AdminFoodFormPictureBox.Name = "AdminFoodFormPictureBox";
-            this.AdminFoodFormPictureBox.Size = new System.Drawing.Size(265, 115);
+            this.AdminFoodFormPictureBox.Size = new System.Drawing.Size(265, 100);
             this.AdminFoodFormPictureBox.TabIndex = 43;
             this.AdminFoodFormPictureBox.TabStop = false;
+            // 
+            // LoadImageButton
+            // 
+            this.LoadImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(89)))), ((int)(((byte)(83)))));
+            this.LoadImageButton.FlatAppearance.BorderSize = 0;
+            this.LoadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoadImageButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LoadImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
+            this.LoadImageButton.Location = new System.Drawing.Point(185, 159);
+            this.LoadImageButton.Name = "LoadImageButton";
+            this.LoadImageButton.Size = new System.Drawing.Size(92, 35);
+            this.LoadImageButton.TabIndex = 44;
+            this.LoadImageButton.Text = "Load Image";
+            this.LoadImageButton.UseVisualStyleBackColor = false;
             // 
             // AdminFoodForm
             // 
@@ -287,6 +304,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.LoadImageButton);
             this.Controls.Add(this.AdminFoodFormPictureBox);
             this.Controls.Add(this.AdminFoodFormFoodCalorieTextBox);
             this.Controls.Add(this.AdminFoodFormFoodCategoryNameTextBox);
@@ -341,5 +359,6 @@
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem csmRefresh;
         private PictureBox AdminFoodFormPictureBox;
+        private Button LoadImageButton;
     }
 }

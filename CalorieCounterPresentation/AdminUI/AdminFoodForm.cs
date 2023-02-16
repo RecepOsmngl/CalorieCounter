@@ -313,5 +313,15 @@ namespace CalorieCounterPresentation.AdminUI
             }
 
         }
+
+        private void AdminFoodFormFoodNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminFoodFormDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
