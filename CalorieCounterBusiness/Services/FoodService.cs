@@ -42,6 +42,16 @@ namespace CalorieCounterBusiness.Services
             }
         }
 
+        public int FoodIdAdd(FoodCategoryEntity food)
+        {
+            using(_db=new CalorieCounterContext())
+            {
+                int FoodCategoryId = _db.FoodCategoryEntityTable.Where(x=>x.FoodCategoryName==food.FoodCategoryName).Select(x=>x.FoodCategoryID).First();
+                 //int FoodEntity= FoodCategoryEntity.FoodCategoryID;
+                return FoodCategoryId;
+            }
+        }
+
 
         //Yemeği database ekleyen method.
 

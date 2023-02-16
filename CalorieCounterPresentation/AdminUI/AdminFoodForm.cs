@@ -20,6 +20,7 @@ namespace CalorieCounterPresentation.AdminUI
         CalorieCounterContext _db;
         FoodService _foodService = new FoodService();
         FoodEntity _foodEntity ;
+        FoodCategoryEntity _foodCategoryEntity;
         public AdminFoodForm()
         {
             InitializeComponent();
@@ -144,7 +145,7 @@ namespace CalorieCounterPresentation.AdminUI
         private void FoodEdit()
         {
             string foodName = AdminFoodFormFoodNameTextBox.Text.Trim();
-            var foodCategoryId = int.Parse(AdminFoodFormFoodCategoryIDTextBox.Text.Trim());
+            var foodCategoryId = int.Parse(AdminFoodFormFoodCategoryNameTextBox.Text.Trim());
             var foodCalorie = int.Parse(AdminFoodFormFoodCalorieTextBox.Text.Trim());
             foodName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(foodName);
 
@@ -190,7 +191,7 @@ namespace CalorieCounterPresentation.AdminUI
         {
             AdminFoodFormFoodNameTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[1].Value.ToString();
             id = int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[0].Value.ToString());
-            AdminFoodFormFoodCategoryIDTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString();
+            AdminFoodFormFoodCategoryNameTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString();
             AdminFoodFormFoodCalorieTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[4].Value.ToString();
             
         }
@@ -198,17 +199,35 @@ namespace CalorieCounterPresentation.AdminUI
         private void FoodAdd()
         {
             string foodName = AdminFoodFormFoodNameTextBox.Text.Trim();
-            var foodCategoryId = int.Parse(AdminFoodFormFoodCategoryIDTextBox.Text.Trim());
-            var foodCalorie = int.Parse(AdminFoodFormFoodCalorieTextBox.Text.Trim());
+            var foodCategoryName = AdminFoodFormFoodCategoryNameTextBox.Text.Trim();
+
+            var foodCalorie=0;
+            int _DefaultCalorie = 0;
+            bool _IsParsedHeight = int.TryParse(AdminFoodFormFoodCalorieTextBox.Text.Trim(), out _DefaultCalorie);
+            if (_IsParsedHeight)
+            {
+                foodCalorie = int.Parse(AdminFoodFormFoodCalorieTextBox.Text.Trim());
+            }
+            else
+            {
+                foodCalorie = _DefaultCalorie;
+            }
+
+
+            //var foodCalorie = int.Parse(AdminFoodFormFoodCalorieTextBox.Text.Trim());
             foodName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(foodName);
 
             try
             {
-                if (!string.IsNullOrWhiteSpace(foodName) && foodCategoryId != null && foodCalorie != null)
+                if (!string.IsNullOrWhiteSpace(foodName) && foodCategoryName != null && foodCalorie != 0)
                 {
                     _foodEntity = new FoodEntity();
                     _foodEntity.FoodName = foodName;
-                    _foodEntity.FoodCategoryID = foodCategoryId;
+                    _foodCategoryEntity=new FoodCategoryEntity();
+                    _foodCategoryEntity.FoodCategoryName = foodCategoryName;
+                    int foodEntityFoodCategoryId= _foodService.FoodIdAdd(_foodCategoryEntity);
+                    //_foodEntity.FoodCategoryEntity.FoodCategoryName=foodCategoryName;
+                    _foodEntity.FoodCategoryID = foodEntityFoodCategoryId;
                     _foodEntity.FoodCalorie = foodCalorie;
 
                     bool IsCheck = _foodService.FoodAddIsCheck(_foodEntity);
@@ -260,14 +279,39 @@ namespace CalorieCounterPresentation.AdminUI
         private void FoodTextBoxClear()
         {
             AdminFoodFormFoodNameTextBox.Clear();
-            AdminFoodFormFoodCategoryIDTextBox.Clear();
+            AdminFoodFormFoodCategoryNameTextBox.Clear();
             AdminFoodFormFoodCalorieTextBox.Clear();
         }
 
         private void AdminFoodForm_Load(object sender, EventArgs e)
         {
+
+            using (_db = new CalorieCounterContext())
+            {
+                AdminFoodFormDataGridView.DataSource = _db.FoodCategoryEntityTable.ToList();
+                AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
+                foreach (FoodCategoryEntity item in AdminFoodFormDataGridView.DataSource as List<FoodCategoryEntity>)
+                {
+                    ac.Add(item.FoodCategoryName);
+
+                }
+                AdminFoodFormFoodCategoryNameTextBox.AutoCompleteCustomSource = ac;
+            }
+
             FoodFill();
             FoodTextBoxClear();
+        }
+
+        private void AdminFoodFormFoodCategoryNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                using (_db =new CalorieCounterContext())
+                {
+                   AdminFoodFormDataGridView.DataSource= _db.FoodCategoryEntityTable.Where(x=>x.FoodCategoryName.Contains(AdminFoodFormFoodCategoryNameTextBox.Text)).ToList();
+                }
+            }
+
         }
     }
 }

@@ -46,7 +46,7 @@
             this.AdminFoodFormDeleteButton = new System.Windows.Forms.Button();
             this.AdminFoodFormSearchButton = new System.Windows.Forms.Button();
             this.AdminFoodFormFoodNameTextBox = new System.Windows.Forms.TextBox();
-            this.AdminFoodFormFoodCategoryIDTextBox = new System.Windows.Forms.TextBox();
+            this.AdminFoodFormFoodCategoryNameTextBox = new System.Windows.Forms.TextBox();
             this.AdminFoodFormFoodCalorieTextBox = new System.Windows.Forms.TextBox();
             this.AdminFoodFormPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormDataGridView)).BeginInit();
@@ -155,7 +155,7 @@
             // csmRefresh
             // 
             this.csmRefresh.Name = "csmRefresh";
-            this.csmRefresh.Size = new System.Drawing.Size(180, 22);
+            this.csmRefresh.Size = new System.Drawing.Size(113, 22);
             this.csmRefresh.Text = "Refresh";
             this.csmRefresh.Click += new System.EventHandler(this.CsmClick);
             // 
@@ -173,11 +173,11 @@
             // 
             this.AdminFoodFormLabel2.AutoSize = true;
             this.AdminFoodFormLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
-            this.AdminFoodFormLabel2.Location = new System.Drawing.Point(333, 101);
+            this.AdminFoodFormLabel2.Location = new System.Drawing.Point(295, 101);
             this.AdminFoodFormLabel2.Name = "AdminFoodFormLabel2";
-            this.AdminFoodFormLabel2.Size = new System.Drawing.Size(96, 16);
+            this.AdminFoodFormLabel2.Size = new System.Drawing.Size(134, 16);
             this.AdminFoodFormLabel2.TabIndex = 34;
-            this.AdminFoodFormLabel2.Text = "Food Category:";
+            this.AdminFoodFormLabel2.Text = "Food Category Name:";
             // 
             // AdminFoodFormLabel3
             // 
@@ -256,12 +256,15 @@
             this.AdminFoodFormFoodNameTextBox.Size = new System.Drawing.Size(225, 22);
             this.AdminFoodFormFoodNameTextBox.TabIndex = 40;
             // 
-            // AdminFoodFormFoodCategoryIDTextBox
+            // AdminFoodFormFoodCategoryNameTextBox
             // 
-            this.AdminFoodFormFoodCategoryIDTextBox.Location = new System.Drawing.Point(435, 98);
-            this.AdminFoodFormFoodCategoryIDTextBox.Name = "AdminFoodFormFoodCategoryIDTextBox";
-            this.AdminFoodFormFoodCategoryIDTextBox.Size = new System.Drawing.Size(225, 22);
-            this.AdminFoodFormFoodCategoryIDTextBox.TabIndex = 41;
+            this.AdminFoodFormFoodCategoryNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.AdminFoodFormFoodCategoryNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.AdminFoodFormFoodCategoryNameTextBox.Location = new System.Drawing.Point(435, 98);
+            this.AdminFoodFormFoodCategoryNameTextBox.Name = "AdminFoodFormFoodCategoryNameTextBox";
+            this.AdminFoodFormFoodCategoryNameTextBox.Size = new System.Drawing.Size(225, 22);
+            this.AdminFoodFormFoodCategoryNameTextBox.TabIndex = 41;
+            this.AdminFoodFormFoodCategoryNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AdminFoodFormFoodCategoryNameTextBox_KeyDown);
             // 
             // AdminFoodFormFoodCalorieTextBox
             // 
@@ -286,7 +289,7 @@
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.AdminFoodFormPictureBox);
             this.Controls.Add(this.AdminFoodFormFoodCalorieTextBox);
-            this.Controls.Add(this.AdminFoodFormFoodCategoryIDTextBox);
+            this.Controls.Add(this.AdminFoodFormFoodCategoryNameTextBox);
             this.Controls.Add(this.AdminFoodFormFoodNameTextBox);
             this.Controls.Add(this.AdminFoodFormSearchButton);
             this.Controls.Add(this.AdminFoodFormDeleteButton);
@@ -333,7 +336,7 @@
         private Button AdminFoodFormDeleteButton;
         private Button AdminFoodFormSearchButton;
         private TextBox AdminFoodFormFoodNameTextBox;
-        private TextBox AdminFoodFormFoodCategoryIDTextBox;
+        private TextBox AdminFoodFormFoodCategoryNameTextBox;
         private TextBox AdminFoodFormFoodCalorieTextBox;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem csmRefresh;
