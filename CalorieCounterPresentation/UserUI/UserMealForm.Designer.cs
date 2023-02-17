@@ -31,8 +31,7 @@
             this.NN = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
-            this.UserMealFormFoodIDTextBox = new System.Windows.Forms.TextBox();
-            this.UserMealFormMealCategoryIDTextBox = new System.Windows.Forms.TextBox();
+            this.UserMealFormFoodNameTextBox = new System.Windows.Forms.TextBox();
             this.UserMealFormSearchButton = new System.Windows.Forms.Button();
             this.UserMealFormDeleteButton = new System.Windows.Forms.Button();
             this.UserMealFormEditButton = new System.Windows.Forms.Button();
@@ -51,6 +50,7 @@
             this.UserMealFormLabel7 = new System.Windows.Forms.Label();
             this.UserMealFormLabel8 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.UserMealFormMealCategoryCmbox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.UserMealFormDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,19 +96,12 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // UserMealFormFoodIDTextBox
+            // UserMealFormFoodNameTextBox
             // 
-            this.UserMealFormFoodIDTextBox.Location = new System.Drawing.Point(435, 125);
-            this.UserMealFormFoodIDTextBox.Name = "UserMealFormFoodIDTextBox";
-            this.UserMealFormFoodIDTextBox.Size = new System.Drawing.Size(225, 22);
-            this.UserMealFormFoodIDTextBox.TabIndex = 52;
-            // 
-            // UserMealFormMealCategoryIDTextBox
-            // 
-            this.UserMealFormMealCategoryIDTextBox.Location = new System.Drawing.Point(435, 55);
-            this.UserMealFormMealCategoryIDTextBox.Name = "UserMealFormMealCategoryIDTextBox";
-            this.UserMealFormMealCategoryIDTextBox.Size = new System.Drawing.Size(225, 22);
-            this.UserMealFormMealCategoryIDTextBox.TabIndex = 50;
+            this.UserMealFormFoodNameTextBox.Location = new System.Drawing.Point(435, 125);
+            this.UserMealFormFoodNameTextBox.Name = "UserMealFormFoodNameTextBox";
+            this.UserMealFormFoodNameTextBox.Size = new System.Drawing.Size(225, 22);
+            this.UserMealFormFoodNameTextBox.TabIndex = 52;
             // 
             // UserMealFormSearchButton
             // 
@@ -123,6 +116,7 @@
             this.UserMealFormSearchButton.TabIndex = 49;
             this.UserMealFormSearchButton.Text = "Search";
             this.UserMealFormSearchButton.UseVisualStyleBackColor = false;
+            this.UserMealFormSearchButton.Click += new System.EventHandler(this.Click);
             // 
             // UserMealFormDeleteButton
             // 
@@ -137,6 +131,7 @@
             this.UserMealFormDeleteButton.TabIndex = 48;
             this.UserMealFormDeleteButton.Text = "Delete";
             this.UserMealFormDeleteButton.UseVisualStyleBackColor = false;
+            this.UserMealFormDeleteButton.Click += new System.EventHandler(this.Click);
             // 
             // UserMealFormEditButton
             // 
@@ -151,6 +146,7 @@
             this.UserMealFormEditButton.TabIndex = 47;
             this.UserMealFormEditButton.Text = "Edit";
             this.UserMealFormEditButton.UseVisualStyleBackColor = false;
+            this.UserMealFormEditButton.Click += new System.EventHandler(this.Click);
             // 
             // UserMealFormAddButton
             // 
@@ -165,7 +161,7 @@
             this.UserMealFormAddButton.TabIndex = 46;
             this.UserMealFormAddButton.Text = "Add";
             this.UserMealFormAddButton.UseVisualStyleBackColor = false;
-            this.UserMealFormAddButton.Click += new System.EventHandler(this.UserMealFormAddButton_Click);
+            this.UserMealFormAddButton.Click += new System.EventHandler(this.Click);
             // 
             // UserMealFormLabel3
             // 
@@ -307,12 +303,21 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 63;
             // 
+            // UserMealFormMealCategoryCmbox
+            // 
+            this.UserMealFormMealCategoryCmbox.FormattingEnabled = true;
+            this.UserMealFormMealCategoryCmbox.Location = new System.Drawing.Point(435, 57);
+            this.UserMealFormMealCategoryCmbox.Name = "UserMealFormMealCategoryCmbox";
+            this.UserMealFormMealCategoryCmbox.Size = new System.Drawing.Size(200, 24);
+            this.UserMealFormMealCategoryCmbox.TabIndex = 64;
+            // 
             // UserMealForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.UserMealFormMealCategoryCmbox);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.UserMealFormLabel8);
             this.Controls.Add(this.UserMealFormLabel7);
@@ -324,8 +329,7 @@
             this.Controls.Add(this.UserMealFormLabel5);
             this.Controls.Add(this.UserMealFormFoodPortionTextBox);
             this.Controls.Add(this.UserMealFormLabel4);
-            this.Controls.Add(this.UserMealFormFoodIDTextBox);
-            this.Controls.Add(this.UserMealFormMealCategoryIDTextBox);
+            this.Controls.Add(this.UserMealFormFoodNameTextBox);
             this.Controls.Add(this.UserMealFormSearchButton);
             this.Controls.Add(this.UserMealFormDeleteButton);
             this.Controls.Add(this.UserMealFormEditButton);
@@ -353,8 +357,7 @@
         private Button NN;
         private Button CloseButton;
         private Button BackButton;
-        private TextBox UserMealFormFoodIDTextBox;
-        private TextBox UserMealFormMealCategoryIDTextBox;
+        private TextBox UserMealFormFoodNameTextBox;
         private Button UserMealFormSearchButton;
         private Button UserMealFormDeleteButton;
         private Button UserMealFormEditButton;
@@ -373,5 +376,6 @@
         private Label UserMealFormLabel7;
         private Label UserMealFormLabel8;
         private DateTimePicker dateTimePicker1;
+        private ComboBox UserMealFormMealCategoryCmbox;
     }
 }
