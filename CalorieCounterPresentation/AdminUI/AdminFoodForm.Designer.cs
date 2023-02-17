@@ -268,7 +268,7 @@
             this.AdminFoodFormFoodCategoryNameTextBox.Name = "AdminFoodFormFoodCategoryNameTextBox";
             this.AdminFoodFormFoodCategoryNameTextBox.Size = new System.Drawing.Size(225, 22);
             this.AdminFoodFormFoodCategoryNameTextBox.TabIndex = 41;
-            this.AdminFoodFormFoodCategoryNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AdminFoodFormFoodCategoryNameTextBox_KeyDown);
+            //this.AdminFoodFormFoodCategoryNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AdminFoodFormFoodCategoryNameTextBox_KeyDown);
             // 
             // AdminFoodFormFoodCalorieTextBox
             // 

@@ -281,7 +281,6 @@ namespace CalorieCounterPresentation.AdminUI
             AdminFoodFormDataGridView.Columns["MealEntity"].Visible = false;
             AdminFoodFormDataGridView.Columns["FoodCategoryEntity"].Visible = false;
             AdminFoodFormDataGridView.Columns["PhotographEntity"].Visible = false;
-            AdminFoodFormDataGridView.Columns["PhotographID"].Visible = false;
         }
         //Textboxları temizleyen fonksiyon.
         private void FoodTextBoxClear()
@@ -296,9 +295,9 @@ namespace CalorieCounterPresentation.AdminUI
 
             using (_db = new CalorieCounterContext())
             {
-                AdminFoodFormDataGridView.DataSource = _db.FoodCategoryEntityTable.ToList();
+                List<FoodCategoryEntity> _FoodCategoryEntityList = _db.FoodCategoryEntityTable.ToList();
                 AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
-                foreach (FoodCategoryEntity item in AdminFoodFormDataGridView.DataSource as List<FoodCategoryEntity>)
+                foreach (FoodCategoryEntity item in _FoodCategoryEntityList)
                 {
                     ac.Add(item.FoodCategoryName);
 
@@ -310,17 +309,16 @@ namespace CalorieCounterPresentation.AdminUI
             FoodTextBoxClear();
         }
 
-        private void AdminFoodFormFoodCategoryNameTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode==Keys.Enter)
-            {
-                using (_db =new CalorieCounterContext())
-                {
-                   AdminFoodFormDataGridView.DataSource= _db.FoodCategoryEntityTable.Where(x=>x.FoodCategoryName.Contains(AdminFoodFormFoodCategoryNameTextBox.Text)).ToList();
-                }
-            }
-
-        }
+        //private void AdminFoodFormFoodCategoryNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        using (_db = new CalorieCounterContext())
+        //        {
+        //            AdminFoodFormDataGridView.DataSource = _db.FoodCategoryEntityTable.Where(x => x.FoodCategoryName.Contains(AdminFoodFormFoodCategoryNameTextBox.Text)).ToList();
+        //        }
+        //    }
+        //}
 
         private void AdminFoodFormFoodNameTextBox_TextChanged(object sender, EventArgs e)
         {
