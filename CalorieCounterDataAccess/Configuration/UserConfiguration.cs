@@ -15,6 +15,9 @@ namespace CalorieCounterDataAccess.Configuration
         {
             // Primary Key
             builder.HasKey(x => x.UserID);
+
+            builder.Property(x => x.UserState)
+                   .HasDefaultValue("false");
         }
     }
 }

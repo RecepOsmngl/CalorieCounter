@@ -42,7 +42,7 @@ namespace CalorieCounterDataAccess.Migrations
                     PhotographID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PhotographName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Photograph = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                    Photograph = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -61,7 +61,8 @@ namespace CalorieCounterDataAccess.Migrations
                     UserSurname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserHeight = table.Column<int>(type: "int", nullable: true),
                     UserWeight = table.Column<int>(type: "int", nullable: true),
-                    UserGender = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UserGender = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserState = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "false")
                 },
                 constraints: table =>
                 {

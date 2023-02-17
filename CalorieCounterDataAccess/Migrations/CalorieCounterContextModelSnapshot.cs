@@ -128,8 +128,8 @@ namespace CalorieCounterDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PhotographID"), 1L, 1);
 
-                    b.Property<byte[]>("Photograph")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Photograph")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhotographName")
                         .HasColumnType("nvarchar(max)");
@@ -163,6 +163,11 @@ namespace CalorieCounterDataAccess.Migrations
                     b.Property<string>("UserPassword")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserState")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("false");
 
                     b.Property<string>("UserSurname")
                         .HasColumnType("nvarchar(max)");

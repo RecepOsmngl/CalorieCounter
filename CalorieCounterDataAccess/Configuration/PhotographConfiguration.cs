@@ -16,9 +16,6 @@ namespace CalorieCounterDataAccess.Configuration
         {
             // Primary Key
             builder.HasKey(x => x.PhotographID);
-
-            builder.Property(x => x.Photograph)
-                   .HasColumnType("varbinary(max)");
         }
     }
 }

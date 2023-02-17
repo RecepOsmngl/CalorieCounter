@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalorieCounterDataAccess.Migrations
 {
     [DbContext(typeof(CalorieCounterContext))]
-    [Migration("20230213161255_Init")]
+    [Migration("20230217185915_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -130,8 +130,8 @@ namespace CalorieCounterDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PhotographID"), 1L, 1);
 
-                    b.Property<byte[]>("Photograph")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Photograph")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhotographName")
                         .HasColumnType("nvarchar(max)");
@@ -165,6 +165,11 @@ namespace CalorieCounterDataAccess.Migrations
                     b.Property<string>("UserPassword")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserState")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("false");
 
                     b.Property<string>("UserSurname")
                         .HasColumnType("nvarchar(max)");

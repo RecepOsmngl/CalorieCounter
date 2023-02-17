@@ -17,6 +17,7 @@ namespace CalorieCounterEntity
         private int? _UserHeight;
         private int? _UserWeight;
         private string? _UserGender;
+        private string? _UserState;
 
         // Relation
         private ICollection<MealEntity>? _MealEntity;
@@ -30,9 +31,11 @@ namespace CalorieCounterEntity
         public int? UserHeight { get => _UserHeight; set => _UserHeight = value; }
         public int? UserWeight { get => _UserWeight; set => _UserWeight = value; }
         public string? UserGender { get => _UserGender; set => _UserGender = value; }
+        public string? UserState { get => _UserState; set => _UserState = value; }
 
         // Relation
         public ICollection<MealEntity>? MealEntity { get => _MealEntity; set => _MealEntity = value; }
+        
 
         // Constructor
         public UserEntity()
