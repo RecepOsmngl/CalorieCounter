@@ -138,6 +138,7 @@
             this.LoginFormUserPasswordTextBox.PasswordChar = '*';
             this.LoginFormUserPasswordTextBox.Size = new System.Drawing.Size(254, 22);
             this.LoginFormUserPasswordTextBox.TabIndex = 8;
+            this.LoginFormUserPasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginFormUserPasswordTextBox_KeyDown);
             // 
             // LoginButton
             // 
@@ -235,6 +236,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Enter += new System.EventHandler(this.LoginButton_Click);
             ((System.ComponentModel.ISupportInitialize)(this.LoginFormPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

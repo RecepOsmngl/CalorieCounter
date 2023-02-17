@@ -26,14 +26,15 @@ namespace CalorieCounterPresentation.LoginUI
 
         public void LoginForm_Load(object sender, EventArgs e)
         {
-            // CheckEnter(object sender, System.Windows.Forms.KeyEventArgs e);
+            //AutoScaleDime.text = this.ActiveControl;
         }
+
         //Button button = (Button)sender
         //public void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
         //{
         //    if (e.KeyChar == (char)13)
         //    {
-        //        LoginButton_Click(object sender, EventArgs e);
+        //        LoginButton_Click();
         //    }
         //}
 
@@ -66,6 +67,32 @@ namespace CalorieCounterPresentation.LoginUI
         // Login Button
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            LoginButtonClickMethod();
+        }
+
+        // ***CHECKBOXES***
+        private void LoginFormCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (LoginFormCheckBox.Checked == true)
+            {
+                LoginFormUserPasswordTextBox.PasswordChar = '\0';
+            }
+            else
+            {
+                LoginFormUserPasswordTextBox.PasswordChar = '*';
+            }
+        }
+
+        private void LoginFormUserPasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginButtonClickMethod();
+            }
+        }
+
+        public void LoginButtonClickMethod()
+        {
             UserEntity _UserEntity = new UserEntity();
             _UserEntity.UserMail = LoginFormUserMailTextBox.Text;
             _UserEntity.UserPassword = LoginFormUserPasswordTextBox.Text;
@@ -89,19 +116,6 @@ namespace CalorieCounterPresentation.LoginUI
             else
             {
                 MessageBox.Show("Incorrect email address or password!");
-            }
-        }
-
-        // ***CHECKBOXES***
-        private void LoginFormCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (LoginFormCheckBox.Checked == true)
-            {
-                LoginFormUserPasswordTextBox.PasswordChar = '\0';
-            }
-            else
-            {
-                LoginFormUserPasswordTextBox.PasswordChar = '*';
             }
         }
     }

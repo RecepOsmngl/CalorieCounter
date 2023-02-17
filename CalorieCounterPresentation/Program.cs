@@ -14,8 +14,8 @@ namespace CalorieCounterPresentation
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new LoginForm());
-            Application.Run(new AdminFoodForm());
+            Application.Run(new LoginForm());
+            //Application.Run(new AdminFoodForm());
         }
 
         // 14.02.2023
