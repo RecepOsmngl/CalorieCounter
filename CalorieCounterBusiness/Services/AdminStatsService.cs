@@ -28,7 +28,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 1 /*&& x.MealTime == DateTime.Now*/)
+                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 1 && x.MealTime==DateTime.Today )
                 .Sum(x => x.FoodTotalCalorie);
                 return TotalCalorie;
             }
@@ -38,7 +38,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 2 /*&& x.MealTime == DateTime.Now*/)
+                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 2 && x.MealTime == DateTime.Today)
                 .Sum(x => x.FoodTotalCalorie);
                 return TotalCalorie;
             }
@@ -47,7 +47,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 3 /*&& x.MealTime == DateTime.Now*/)
+                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 3 && x.MealTime == DateTime.Today)
                 .Sum(x => x.FoodTotalCalorie);
                 return TotalCalorie;
             }
@@ -56,7 +56,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 4 /*&& x.MealTime == DateTime.Now*/)
+                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 4 && x.MealTime == DateTime.Today)
                 .Sum(x => x.FoodTotalCalorie);
                 return TotalCalorie;
             }

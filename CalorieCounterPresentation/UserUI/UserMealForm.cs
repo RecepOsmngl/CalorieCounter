@@ -33,5 +33,10 @@ namespace CalorieCounterPresentation.UserUI
         {
 
         }
+
+        private void UserMealFormAddButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

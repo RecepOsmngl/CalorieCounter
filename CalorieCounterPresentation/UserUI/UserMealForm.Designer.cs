@@ -165,6 +165,7 @@
             this.UserMealFormAddButton.TabIndex = 46;
             this.UserMealFormAddButton.Text = "Add";
             this.UserMealFormAddButton.UseVisualStyleBackColor = false;
+            this.UserMealFormAddButton.Click += new System.EventHandler(this.UserMealFormAddButton_Click);
             // 
             // UserMealFormLabel3
             // 
