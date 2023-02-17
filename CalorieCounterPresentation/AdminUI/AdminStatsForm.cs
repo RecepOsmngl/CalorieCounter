@@ -103,6 +103,7 @@ namespace CalorieCounterPresentation.AdminUI
         }
         public void UserMealFill(int _TotalBreakfastCalorie, int _TotalLunchCalorie, int _TotalDinnerCalorie, int _TotalSnackCalorie, int _TotalCalorie)
         {
+            DataGridviewClear();
             AdminStatsFormUsersMealDgv.ReadOnly = true;
             AdminStatsFormUsersMealDgv.AllowUserToDeleteRows = false;
             AdminStatsFormUsersMealDgv.ColumnCount = 5;
@@ -118,7 +119,8 @@ namespace CalorieCounterPresentation.AdminUI
         }
        private void DataGridviewClear()
         {
-            AdminStatsFormUsersMealDgv.ClearSelection();
+            AdminStatsFormUsersMealDgv.DataSource = null;
+            AdminStatsFormUsersMealDgv.Rows.Clear();
         }
 
         private void AdminEndofDayButton_Click(object sender, EventArgs e)
