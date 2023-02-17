@@ -36,7 +36,7 @@ namespace CalorieCounterPresentation.UserUI
 
         private void UserStatsForm_Load(object sender, EventArgs e)
         {
-
+            // Hasan 
         }
     }
 }
