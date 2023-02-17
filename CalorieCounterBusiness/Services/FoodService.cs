@@ -178,6 +178,7 @@ namespace CalorieCounterBusiness.Services
                     foodEntities.Clear();
                     return foodEntities;
                 }
+                
 
             }
         }
@@ -186,11 +187,11 @@ namespace CalorieCounterBusiness.Services
         /// </summary>
         /// <param name="categoryid"></param>
         /// <returns></returns>
-        public string ComeFoodCategoryName(int categoryid     )
+        public string ComeFoodCategoryName(int foodcategoryid)
         {
             using(_db=new CalorieCounterContext())
             {
-                return _db.FoodCategoryEntityTable.Where(x => x.FoodCategoryID == categoryid).Select(x => x.FoodCategoryName).First();
+                return _db.FoodCategoryEntityTable.Where(x => x.FoodCategoryID == foodcategoryid).Select(x => x.FoodCategoryName).First();
             }
           
         }

@@ -32,8 +32,8 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.NN = new System.Windows.Forms.Button();
             this.NN2 = new System.Windows.Forms.Button();
-            this.AdminStatsFormDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.AdminStatsFormDataGridView2 = new System.Windows.Forms.DataGridView();
+            this.AdminStatsFormUserDgv = new System.Windows.Forms.DataGridView();
+            this.AdminStatsFormUsersMealDgv = new System.Windows.Forms.DataGridView();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.AdminStatsFormLabel1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,8 +43,8 @@
             this.UserStatsFormMonthlyButton = new System.Windows.Forms.Button();
             this.UserStatsFormWeeklyButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.AdminStatsFormDataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AdminStatsFormDataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminStatsFormUserDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminStatsFormUsersMealDgv)).BeginInit();
             this.SuspendLayout();
             // 
             // BackButton
@@ -101,23 +101,24 @@
             this.NN2.TabIndex = 65;
             this.NN2.UseVisualStyleBackColor = false;
             // 
-            // AdminStatsFormDataGridView1
+            // AdminStatsFormUserDgv
             // 
-            this.AdminStatsFormDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AdminStatsFormDataGridView1.Location = new System.Drawing.Point(12, 84);
-            this.AdminStatsFormDataGridView1.Name = "AdminStatsFormDataGridView1";
-            this.AdminStatsFormDataGridView1.RowTemplate.Height = 25;
-            this.AdminStatsFormDataGridView1.Size = new System.Drawing.Size(592, 168);
-            this.AdminStatsFormDataGridView1.TabIndex = 71;
+            this.AdminStatsFormUserDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AdminStatsFormUserDgv.Location = new System.Drawing.Point(12, 84);
+            this.AdminStatsFormUserDgv.Name = "AdminStatsFormUserDgv";
+            this.AdminStatsFormUserDgv.RowTemplate.Height = 25;
+            this.AdminStatsFormUserDgv.Size = new System.Drawing.Size(592, 168);
+            this.AdminStatsFormUserDgv.TabIndex = 71;
+            this.AdminStatsFormUserDgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdminStatsFormUserDgv_CellContentClick);
             // 
-            // AdminStatsFormDataGridView2
+            // AdminStatsFormUsersMealDgv
             // 
-            this.AdminStatsFormDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AdminStatsFormDataGridView2.Location = new System.Drawing.Point(12, 284);
-            this.AdminStatsFormDataGridView2.Name = "AdminStatsFormDataGridView2";
-            this.AdminStatsFormDataGridView2.RowTemplate.Height = 25;
-            this.AdminStatsFormDataGridView2.Size = new System.Drawing.Size(729, 163);
-            this.AdminStatsFormDataGridView2.TabIndex = 72;
+            this.AdminStatsFormUsersMealDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AdminStatsFormUsersMealDgv.Location = new System.Drawing.Point(12, 284);
+            this.AdminStatsFormUsersMealDgv.Name = "AdminStatsFormUsersMealDgv";
+            this.AdminStatsFormUsersMealDgv.RowTemplate.Height = 25;
+            this.AdminStatsFormUsersMealDgv.Size = new System.Drawing.Size(729, 163);
+            this.AdminStatsFormUsersMealDgv.TabIndex = 72;
             // 
             // UpdateButton
             // 
@@ -170,6 +171,7 @@
             this.UserStatsFormFoodCategoryButton.TabIndex = 90;
             this.UserStatsFormFoodCategoryButton.Text = "End Of Day";
             this.UserStatsFormFoodCategoryButton.UseVisualStyleBackColor = false;
+            this.UserStatsFormFoodCategoryButton.Click += new System.EventHandler(this.AdminEndofDayButton_Click);
             // 
             // UserStatsFormMealCategoryButton
             // 
@@ -252,8 +254,8 @@
             this.Controls.Add(this.UserStatsFormMonthlyButton);
             this.Controls.Add(this.UserStatsFormWeeklyButton);
             this.Controls.Add(this.UpdateButton);
-            this.Controls.Add(this.AdminStatsFormDataGridView2);
-            this.Controls.Add(this.AdminStatsFormDataGridView1);
+            this.Controls.Add(this.AdminStatsFormUsersMealDgv);
+            this.Controls.Add(this.AdminStatsFormUserDgv);
             this.Controls.Add(this.NN2);
             this.Controls.Add(this.AdminStatsFormLabel1);
             this.Controls.Add(this.NN);
@@ -265,8 +267,9 @@
             this.Name = "AdminStatsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminStatsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.AdminStatsFormDataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AdminStatsFormDataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.AdminStatsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.AdminStatsFormUserDgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminStatsFormUsersMealDgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,8 +281,8 @@
         private Button CloseButton;
         private Button NN;
         private Button NN2;
-        private DataGridView AdminStatsFormDataGridView1;
-        private DataGridView AdminStatsFormDataGridView2;
+        private DataGridView AdminStatsFormUserDgv;
+        private DataGridView AdminStatsFormUsersMealDgv;
         private Button UpdateButton;
         private Label AdminStatsFormLabel1;
         private Button button1;

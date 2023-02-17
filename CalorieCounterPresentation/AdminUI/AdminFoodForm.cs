@@ -203,8 +203,8 @@ namespace CalorieCounterPresentation.AdminUI
         {
             AdminFoodFormFoodNameTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[1].Value.ToString();
             id = int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[0].Value.ToString());
-           int categoryid= int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString());
-            string foodcategoryname = _foodService.ComeFoodCategoryName(categoryid);
+           int _foodcategoryid= int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString());
+            string foodcategoryname = _foodService.ComeFoodCategoryName(_foodcategoryid);
             AdminFoodFormFoodCategoryNameTextBox.Text = foodcategoryname;
             AdminFoodFormFoodCalorieTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[4].Value.ToString();
             AdminFoodFormEditButton.Enabled = true;
