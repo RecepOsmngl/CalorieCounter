@@ -24,20 +24,44 @@ namespace CalorieCounterBusiness.Services
         /// </summary>
         /// <param name="_UserEntity"></param>
         /// <returns></returns>
-        public bool UserLogin(UserEntity _UserEntity)
+        public string UserLogin(UserEntity _UserEntity)
         {
+            CalorieCounterContext _db = new CalorieCounterContext();
             // var _UserCheck = _db.UserEntityTable.Where(x => x.UserMail == _UserEntity.UserMail && x.UserPassword == _UserEntity.UserPassword).ToList();
-            var _UserCheck = _db.UserEntityTable.Any(x => x.UserMail == _UserEntity.UserMail && x.UserPassword == _UserEntity.UserPassword);
+            //var _UserCheck = _db.UserEntityTable.Any(x => x.UserMail == _UserEntity.UserMail && x.UserPassword == _UserEntity.UserPassword);
 
-            if (_UserCheck)
+            //if (_UserCheck)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+
+            var _UserMailCheck = _db.UserEntityTable.Where(x => x.UserMail == _UserEntity.UserMail).FirstOrDefault();
+            var _UserPasswordCheck = _db.UserEntityTable.Where(x => x.UserPassword == _UserEntity.UserPassword).FirstOrDefault();
+
+            if ((_UserMailCheck != null) && (_UserPasswordCheck != null))
             {
-                return true;
+
+                if (_UserPasswordCheck.UserPassword == _UserEntity.UserPassword.ToString())
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "2";
+                }
             }
             else
             {
-                return false;
+                return "3";
             }
+
         }
+
+
         /// <summary>
         /// Checks the user mail extension, returns true if they are matched, else false.
         /// </summary>

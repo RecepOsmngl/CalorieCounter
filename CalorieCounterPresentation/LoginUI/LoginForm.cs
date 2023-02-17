@@ -97,10 +97,18 @@ namespace CalorieCounterPresentation.LoginUI
             _UserEntity.UserMail = LoginFormUserMailTextBox.Text;
             _UserEntity.UserPassword = LoginFormUserPasswordTextBox.Text;
 
-            bool _LoginCheck = _UserService.UserLogin(_UserEntity);
-            if (_LoginCheck)
+            string _LoginCheck = _UserService.UserLogin(_UserEntity);
+            if (_LoginCheck == "3")
             {
-                if (_UserEntity.UserMail == "admin@gmail.com")
+                MessageBox.Show("Kullanıcı bulunamadı!");
+            }
+            if (_LoginCheck == "2")
+            {
+                MessageBox.Show("Şifre veya kullanıcı adı yanlış, tekrar giriş yapınız.");
+            }
+            if (_LoginCheck == "1")
+            {
+                if (_UserEntity.UserMail.ToLower() == "admin@gmail.com")
                 {
                     MainAdminForm _MainAdminform = new MainAdminForm();
                     _MainAdminform.Show();
@@ -112,10 +120,6 @@ namespace CalorieCounterPresentation.LoginUI
                     _MainUserForm.Show();
                     this.Hide();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Incorrect email address or password!");
             }
         }
     }
