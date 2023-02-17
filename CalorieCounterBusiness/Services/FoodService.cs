@@ -181,5 +181,18 @@ namespace CalorieCounterBusiness.Services
 
             }
         }
+        /// <summary>
+        /// FoodcategoryId ile arama yapıp geriye string tipinde foodcategoryname döndüren method
+        /// </summary>
+        /// <param name="categoryid"></param>
+        /// <returns></returns>
+        public string ComeFoodCategoryName(int categoryid     )
+        {
+            using(_db=new CalorieCounterContext())
+            {
+                return _db.FoodCategoryEntityTable.Where(x => x.FoodCategoryID == categoryid).Select(x => x.FoodCategoryName).First();
+            }
+          
+        }
     }
 }

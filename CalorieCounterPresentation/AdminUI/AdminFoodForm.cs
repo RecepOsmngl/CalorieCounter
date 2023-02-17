@@ -146,7 +146,17 @@ namespace CalorieCounterPresentation.AdminUI
         //Ürün güncelleme fonksiyonu.Edit butonuna basıldığında çalışıyor.
         private void FoodEdit()
         {
+            
             string foodName = AdminFoodFormFoodNameTextBox.Text.Trim();
+            //foreach (char item in foodName)
+            //{
+            //    if (char.IsDigit(item))
+            //    {
+            //        MessageBox.Show("Foodname sayı olarak girilemez");
+            //        return;
+            //    }
+            //}
+
             var foodCategoryId = int.Parse(AdminFoodFormFoodCategoryNameTextBox.Text.Trim());
             var foodCalorie = int.Parse(AdminFoodFormFoodCalorieTextBox.Text.Trim());
             foodName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(foodName);
@@ -193,8 +203,11 @@ namespace CalorieCounterPresentation.AdminUI
         {
             AdminFoodFormFoodNameTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[1].Value.ToString();
             id = int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[0].Value.ToString());
-            AdminFoodFormFoodCategoryNameTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString();
+           int categoryid= int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString());
+            string foodcategoryname = _foodService.ComeFoodCategoryName(categoryid);
+            AdminFoodFormFoodCategoryNameTextBox.Text = foodcategoryname;
             AdminFoodFormFoodCalorieTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[4].Value.ToString();
+            AdminFoodFormEditButton.Enabled = true;
 
             
             //var _PhotographID = AdminFoodFormDataGridView.CurrentRow.Cells["PhotographID"]; // cells.value.tostring();
@@ -207,6 +220,15 @@ namespace CalorieCounterPresentation.AdminUI
         private void FoodAdd()
         {
             string foodName = AdminFoodFormFoodNameTextBox.Text.Trim();
+            //foreach (char item in foodName)
+            //{
+            //    if (char.IsDigit(item))
+            //    {
+            //        MessageBox.Show("Foodname sayı olarak girilemez");
+            //        return;
+            //    }
+            //}
+           
             var foodCategoryName = AdminFoodFormFoodCategoryNameTextBox.Text.Trim();
 
             var foodCalorie=0;
@@ -307,6 +329,8 @@ namespace CalorieCounterPresentation.AdminUI
 
             FoodFill();
             FoodTextBoxClear();
+            AdminFoodFormEditButton.Enabled = false;
+
         }
 
         //private void AdminFoodFormFoodCategoryNameTextBox_KeyDown(object sender, KeyEventArgs e)
