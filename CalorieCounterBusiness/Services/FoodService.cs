@@ -12,22 +12,6 @@ namespace CalorieCounterBusiness.Services
     {
         CalorieCounterContext _db = new CalorieCounterContext();
 
-        // Değişiklikler
-        // List<FoodEntity> foodEntities = new List<FoodEntity>();
-        // Food Search'ün içinde, başka yerde foodentities kullanılmıyor zaten.
-        // using mi daha mantıklı, CalorieCounterContext başında yazmak mı? _db
-
-        // Sorular
-        // FirstOrDefault liste mi döndürüyor? // FoodSearch
-        // tanımlamayı içerdiği yaptıgğımız listeyi clear() methoduna gerek yok sanırım?
-        // Kod değişcek meselesi
-        // AddFood ve FoodAdd meselesi, formtxt, txtform
-        // return true if exists mantıksal olarak daha iyi gibi, varsa true döndürmek.
-        // isimleri değiştirmeye gerek yokmuş, dün akşam konuşmuştuk.
-        // github
-        // lan oraya tıklamaaa
-
-
         // Yemek listesini databaseden liste halinde getiren ve liste olarak döndüren method.
 
         /// <summary>

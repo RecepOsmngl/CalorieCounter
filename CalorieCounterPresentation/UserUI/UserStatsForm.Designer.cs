@@ -31,7 +31,7 @@
             this.NN = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
-            this.UserStatsFormDataGridView2 = new System.Windows.Forms.DataGridView();
+            this.UserStatsFormUsersMealDgv = new System.Windows.Forms.DataGridView();
             this.UserStatsFormDataGridView1 = new System.Windows.Forms.DataGridView();
             this.UserStatsFormFoodCategoryButton = new System.Windows.Forms.Button();
             this.UserStatsFormMealCategoryButton = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.UserStatsFormDataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserStatsFormUsersMealDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserStatsFormDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,14 +89,15 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // UserStatsFormDataGridView2
+            // UserStatsFormUsersMealDgv
             // 
-            this.UserStatsFormDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UserStatsFormDataGridView2.Location = new System.Drawing.Point(12, 284);
-            this.UserStatsFormDataGridView2.Name = "UserStatsFormDataGridView2";
-            this.UserStatsFormDataGridView2.RowTemplate.Height = 25;
-            this.UserStatsFormDataGridView2.Size = new System.Drawing.Size(729, 163);
-            this.UserStatsFormDataGridView2.TabIndex = 82;
+            this.UserStatsFormUsersMealDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UserStatsFormUsersMealDgv.Location = new System.Drawing.Point(12, 284);
+            this.UserStatsFormUsersMealDgv.Name = "UserStatsFormUsersMealDgv";
+            this.UserStatsFormUsersMealDgv.RowTemplate.Height = 25;
+            this.UserStatsFormUsersMealDgv.Size = new System.Drawing.Size(729, 163);
+            this.UserStatsFormUsersMealDgv.TabIndex = 82;
+            this.UserStatsFormUsersMealDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserStatsFormUsersMealDgv_CellContentClick);
             // 
             // UserStatsFormDataGridView1
             // 
@@ -120,6 +121,7 @@
             this.UserStatsFormFoodCategoryButton.TabIndex = 80;
             this.UserStatsFormFoodCategoryButton.Text = "End Of Day";
             this.UserStatsFormFoodCategoryButton.UseVisualStyleBackColor = false;
+            this.UserStatsFormFoodCategoryButton.Click += new System.EventHandler(this.UserStatsFormFoodCategoryButton_Click);
             // 
             // UserStatsFormMealCategoryButton
             // 
@@ -134,6 +136,7 @@
             this.UserStatsFormMealCategoryButton.TabIndex = 79;
             this.UserStatsFormMealCategoryButton.Text = "Meal Weekly";
             this.UserStatsFormMealCategoryButton.UseVisualStyleBackColor = false;
+            this.UserStatsFormMealCategoryButton.Click += new System.EventHandler(this.UserStatsFormMealCategoryButton_Click);
             // 
             // UserStatsFormYearlyButton
             // 
@@ -148,6 +151,7 @@
             this.UserStatsFormYearlyButton.TabIndex = 78;
             this.UserStatsFormYearlyButton.Text = "Meal Monthly";
             this.UserStatsFormYearlyButton.UseVisualStyleBackColor = false;
+            this.UserStatsFormYearlyButton.Click += new System.EventHandler(this.UserStatsFormYearlyButton_Click);
             // 
             // UserStatsFormMonthlyButton
             // 
@@ -162,6 +166,7 @@
             this.UserStatsFormMonthlyButton.TabIndex = 77;
             this.UserStatsFormMonthlyButton.Text = "Category Weekly";
             this.UserStatsFormMonthlyButton.UseVisualStyleBackColor = false;
+            this.UserStatsFormMonthlyButton.Click += new System.EventHandler(this.UserStatsFormMonthlyButton_Click);
             // 
             // UserStatsFormWeeklyButton
             // 
@@ -176,6 +181,7 @@
             this.UserStatsFormWeeklyButton.TabIndex = 76;
             this.UserStatsFormWeeklyButton.Text = "Category Monthly";
             this.UserStatsFormWeeklyButton.UseVisualStyleBackColor = false;
+            this.UserStatsFormWeeklyButton.Click += new System.EventHandler(this.UserStatsFormWeeklyButton_Click);
             // 
             // NN2
             // 
@@ -238,6 +244,7 @@
             this.button1.TabIndex = 85;
             this.button1.Text = "Food Variety";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // UserStatsForm
             // 
@@ -248,7 +255,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UpdateButton);
-            this.Controls.Add(this.UserStatsFormDataGridView2);
+            this.Controls.Add(this.UserStatsFormUsersMealDgv);
             this.Controls.Add(this.UserStatsFormDataGridView1);
             this.Controls.Add(this.UserStatsFormFoodCategoryButton);
             this.Controls.Add(this.UserStatsFormMealCategoryButton);
@@ -266,7 +273,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserStatsForm";
             this.Load += new System.EventHandler(this.UserStatsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.UserStatsFormDataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserStatsFormUsersMealDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserStatsFormDataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -278,7 +285,7 @@
         private Button NN;
         private Button CloseButton;
         private Button BackButton;
-        private DataGridView UserStatsFormDataGridView2;
+        private DataGridView UserStatsFormUsersMealDgv;
         private DataGridView UserStatsFormDataGridView1;
         private Button UserStatsFormFoodCategoryButton;
         private Button UserStatsFormMealCategoryButton;

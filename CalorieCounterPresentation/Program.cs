@@ -17,7 +17,8 @@ namespace CalorieCounterPresentation
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginForm());
             //Application.Run(new AdminFoodForm());
-            //Application.Run(new AdminStatsForm());
+            // Application.Run(new AdminStatsForm());
+            // Application.Run(new AdminStatsForm());
             //Application.Run(new UserMealForm());
         }
 

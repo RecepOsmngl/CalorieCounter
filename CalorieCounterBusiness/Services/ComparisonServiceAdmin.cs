@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace CalorieCounterBusiness.Services
 {
-    public class ComparisonService
+    public class ComparisonServiceAdmin
     {
         CalorieCounterContext _db;
         UserEntity _userEntity;
 
         // *********************
-        public dynamic UserWeeklyFill(UserEntity userEntity)
+        public dynamic AdminWeeklyFill(UserEntity userEntity)
         {
             using (_db = new CalorieCounterContext())
             {
@@ -23,12 +23,12 @@ namespace CalorieCounterBusiness.Services
                     .Where(m => m.MealTime >= oneWeekAgo) // son bir hafta 
                     .GroupBy(m => new { m.MealCategoryID, m.UserID }) // kategori ve kullanıcıya
                     .Select(g => new { UserId = g.Key.UserID, CategoryId = g.Key.MealCategoryID, AverageCalories = g.Average(m => m.FoodTotalCalorie) }) // her kategorideki yemeklerin ortalama kalori tüketimini hesaplayalım
-                    .ToList();             
+                    .ToList();
                 return averages;
             }
         }
 
-        public dynamic UserWeeklyFill2(UserEntity userEntity)
+        public dynamic AdminWeeklyFill2(UserEntity userEntity)
         {
             using (_db = new CalorieCounterContext())
             {
@@ -43,7 +43,7 @@ namespace CalorieCounterBusiness.Services
         }
 
         // *********************
-        public dynamic UserMonthlyFill(UserEntity userEntity)
+        public dynamic AdminMonthlyFill(UserEntity userEntity)
         {
             using (_db = new CalorieCounterContext())
             {
@@ -58,7 +58,7 @@ namespace CalorieCounterBusiness.Services
         }
 
         // *********************
-        public dynamic UserMontlyhFill2(UserEntity userEntity)
+        public dynamic AdminMontlyhFill2(UserEntity userEntity)
         {
             using (_db = new CalorieCounterContext())
             {
@@ -74,7 +74,5 @@ namespace CalorieCounterBusiness.Services
                 }
             }
         }
-
-
     }
 }

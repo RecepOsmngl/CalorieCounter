@@ -36,10 +36,10 @@
             this.AdminStatsFormUsersMealDgv = new System.Windows.Forms.DataGridView();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.AdminStatsFormLabel1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.FoodVarietyButton = new System.Windows.Forms.Button();
             this.UserStatsFormFoodCategoryButton = new System.Windows.Forms.Button();
-            this.UserStatsFormMealCategoryButton = new System.Windows.Forms.Button();
-            this.UserStatsFormYearlyButton = new System.Windows.Forms.Button();
+            this.UserStatFormWeeklyMealCompare = new System.Windows.Forms.Button();
+            this.UserStatFormMonthlyMealCompare = new System.Windows.Forms.Button();
             this.UserStatsFormMonthlyButton = new System.Windows.Forms.Button();
             this.UserStatsFormWeeklyButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -121,6 +121,7 @@
             this.AdminStatsFormUsersMealDgv.RowTemplate.Height = 25;
             this.AdminStatsFormUsersMealDgv.Size = new System.Drawing.Size(729, 163);
             this.AdminStatsFormUsersMealDgv.TabIndex = 72;
+            this.AdminStatsFormUsersMealDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdminStatsFormUsersMealDgv_CellContentClick);
             // 
             // UpdateButton
             // 
@@ -146,19 +147,20 @@
             this.AdminStatsFormLabel1.TabIndex = 63;
             this.AdminStatsFormLabel1.Text = "Users";
             // 
-            // button1
+            // FoodVarietyButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(89)))), ((int)(((byte)(83)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
-            this.button1.Location = new System.Drawing.Point(651, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 31);
-            this.button1.TabIndex = 91;
-            this.button1.Text = "Food Variety";
-            this.button1.UseVisualStyleBackColor = false;
+            this.FoodVarietyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(89)))), ((int)(((byte)(83)))));
+            this.FoodVarietyButton.FlatAppearance.BorderSize = 0;
+            this.FoodVarietyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FoodVarietyButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FoodVarietyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
+            this.FoodVarietyButton.Location = new System.Drawing.Point(610, 229);
+            this.FoodVarietyButton.Name = "FoodVarietyButton";
+            this.FoodVarietyButton.Size = new System.Drawing.Size(131, 31);
+            this.FoodVarietyButton.TabIndex = 91;
+            this.FoodVarietyButton.Text = "Food Variety";
+            this.FoodVarietyButton.UseVisualStyleBackColor = false;
+            this.FoodVarietyButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // UserStatsFormFoodCategoryButton
             // 
@@ -175,33 +177,35 @@
             this.UserStatsFormFoodCategoryButton.UseVisualStyleBackColor = false;
             this.UserStatsFormFoodCategoryButton.Click += new System.EventHandler(this.AdminEndofDayButton_Click);
             // 
-            // UserStatsFormMealCategoryButton
+            // UserStatFormWeeklyMealCompare
             // 
-            this.UserStatsFormMealCategoryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(89)))), ((int)(((byte)(83)))));
-            this.UserStatsFormMealCategoryButton.FlatAppearance.BorderSize = 0;
-            this.UserStatsFormMealCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UserStatsFormMealCategoryButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.UserStatsFormMealCategoryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
-            this.UserStatsFormMealCategoryButton.Location = new System.Drawing.Point(629, 84);
-            this.UserStatsFormMealCategoryButton.Name = "UserStatsFormMealCategoryButton";
-            this.UserStatsFormMealCategoryButton.Size = new System.Drawing.Size(112, 30);
-            this.UserStatsFormMealCategoryButton.TabIndex = 89;
-            this.UserStatsFormMealCategoryButton.Text = "kıyas 1";
-            this.UserStatsFormMealCategoryButton.UseVisualStyleBackColor = false;
+            this.UserStatFormWeeklyMealCompare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(89)))), ((int)(((byte)(83)))));
+            this.UserStatFormWeeklyMealCompare.FlatAppearance.BorderSize = 0;
+            this.UserStatFormWeeklyMealCompare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UserStatFormWeeklyMealCompare.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.UserStatFormWeeklyMealCompare.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
+            this.UserStatFormWeeklyMealCompare.Location = new System.Drawing.Point(610, 84);
+            this.UserStatFormWeeklyMealCompare.Name = "UserStatFormWeeklyMealCompare";
+            this.UserStatFormWeeklyMealCompare.Size = new System.Drawing.Size(131, 30);
+            this.UserStatFormWeeklyMealCompare.TabIndex = 89;
+            this.UserStatFormWeeklyMealCompare.Text = "Meal Weekly";
+            this.UserStatFormWeeklyMealCompare.UseVisualStyleBackColor = false;
+            this.UserStatFormWeeklyMealCompare.Click += new System.EventHandler(this.UserStatsFormMealCategoryButton_Click);
             // 
-            // UserStatsFormYearlyButton
+            // UserStatFormMonthlyMealCompare
             // 
-            this.UserStatsFormYearlyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(89)))), ((int)(((byte)(83)))));
-            this.UserStatsFormYearlyButton.FlatAppearance.BorderSize = 0;
-            this.UserStatsFormYearlyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UserStatsFormYearlyButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.UserStatsFormYearlyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
-            this.UserStatsFormYearlyButton.Location = new System.Drawing.Point(667, 120);
-            this.UserStatsFormYearlyButton.Name = "UserStatsFormYearlyButton";
-            this.UserStatsFormYearlyButton.Size = new System.Drawing.Size(74, 30);
-            this.UserStatsFormYearlyButton.TabIndex = 88;
-            this.UserStatsFormYearlyButton.Text = "kıyas 2";
-            this.UserStatsFormYearlyButton.UseVisualStyleBackColor = false;
+            this.UserStatFormMonthlyMealCompare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(89)))), ((int)(((byte)(83)))));
+            this.UserStatFormMonthlyMealCompare.FlatAppearance.BorderSize = 0;
+            this.UserStatFormMonthlyMealCompare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UserStatFormMonthlyMealCompare.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.UserStatFormMonthlyMealCompare.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
+            this.UserStatFormMonthlyMealCompare.Location = new System.Drawing.Point(610, 120);
+            this.UserStatFormMonthlyMealCompare.Name = "UserStatFormMonthlyMealCompare";
+            this.UserStatFormMonthlyMealCompare.Size = new System.Drawing.Size(131, 30);
+            this.UserStatFormMonthlyMealCompare.TabIndex = 88;
+            this.UserStatFormMonthlyMealCompare.Text = "Meal Monthly";
+            this.UserStatFormMonthlyMealCompare.UseVisualStyleBackColor = false;
+            this.UserStatFormMonthlyMealCompare.Click += new System.EventHandler(this.UserStatFormMonthlyMealCompare_Click_1);
             // 
             // UserStatsFormMonthlyButton
             // 
@@ -210,12 +214,13 @@
             this.UserStatsFormMonthlyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UserStatsFormMonthlyButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.UserStatsFormMonthlyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
-            this.UserStatsFormMonthlyButton.Location = new System.Drawing.Point(654, 156);
+            this.UserStatsFormMonthlyButton.Location = new System.Drawing.Point(610, 156);
             this.UserStatsFormMonthlyButton.Name = "UserStatsFormMonthlyButton";
-            this.UserStatsFormMonthlyButton.Size = new System.Drawing.Size(87, 31);
+            this.UserStatsFormMonthlyButton.Size = new System.Drawing.Size(131, 31);
             this.UserStatsFormMonthlyButton.TabIndex = 87;
-            this.UserStatsFormMonthlyButton.Text = "kıyas 3";
+            this.UserStatsFormMonthlyButton.Text = "Category Weekly";
             this.UserStatsFormMonthlyButton.UseVisualStyleBackColor = false;
+            this.UserStatsFormMonthlyButton.Click += new System.EventHandler(this.UserStatsFormMonthlyButton_Click);
             // 
             // UserStatsFormWeeklyButton
             // 
@@ -224,12 +229,13 @@
             this.UserStatsFormWeeklyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UserStatsFormWeeklyButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.UserStatsFormWeeklyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
-            this.UserStatsFormWeeklyButton.Location = new System.Drawing.Point(651, 193);
+            this.UserStatsFormWeeklyButton.Location = new System.Drawing.Point(610, 193);
             this.UserStatsFormWeeklyButton.Name = "UserStatsFormWeeklyButton";
-            this.UserStatsFormWeeklyButton.Size = new System.Drawing.Size(90, 31);
+            this.UserStatsFormWeeklyButton.Size = new System.Drawing.Size(131, 31);
             this.UserStatsFormWeeklyButton.TabIndex = 86;
-            this.UserStatsFormWeeklyButton.Text = "kıyas 4";
+            this.UserStatsFormWeeklyButton.Text = "Category Monthly";
             this.UserStatsFormWeeklyButton.UseVisualStyleBackColor = false;
+            this.UserStatsFormWeeklyButton.Click += new System.EventHandler(this.UserStatsFormWeeklyButton_Click);
             // 
             // label1
             // 
@@ -249,10 +255,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.FoodVarietyButton);
             this.Controls.Add(this.UserStatsFormFoodCategoryButton);
-            this.Controls.Add(this.UserStatsFormMealCategoryButton);
-            this.Controls.Add(this.UserStatsFormYearlyButton);
+            this.Controls.Add(this.UserStatFormWeeklyMealCompare);
+            this.Controls.Add(this.UserStatFormMonthlyMealCompare);
             this.Controls.Add(this.UserStatsFormMonthlyButton);
             this.Controls.Add(this.UserStatsFormWeeklyButton);
             this.Controls.Add(this.UpdateButton);
@@ -287,10 +293,10 @@
         private DataGridView AdminStatsFormUsersMealDgv;
         private Button UpdateButton;
         private Label AdminStatsFormLabel1;
-        private Button button1;
+        private Button FoodVarietyButton;
         private Button UserStatsFormFoodCategoryButton;
-        private Button UserStatsFormMealCategoryButton;
-        private Button UserStatsFormYearlyButton;
+        private Button UserStatFormWeeklyMealCompare;
+        private Button UserStatFormMonthlyMealCompare;
         private Button UserStatsFormMonthlyButton;
         private Button UserStatsFormWeeklyButton;
         private Label label1;
