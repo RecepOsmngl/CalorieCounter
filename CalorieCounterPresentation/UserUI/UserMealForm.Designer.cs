@@ -258,12 +258,15 @@
             // 
             // UserMealFormDataGridView
             // 
+            this.UserMealFormDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.UserMealFormDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UserMealFormDataGridView.Location = new System.Drawing.Point(12, 268);
             this.UserMealFormDataGridView.Name = "UserMealFormDataGridView";
             this.UserMealFormDataGridView.RowTemplate.Height = 25;
+            this.UserMealFormDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.UserMealFormDataGridView.Size = new System.Drawing.Size(729, 179);
             this.UserMealFormDataGridView.TabIndex = 59;
+            this.UserMealFormDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserMealFormDataGridView_CellClick);
             // 
             // UpdateButton
             // 

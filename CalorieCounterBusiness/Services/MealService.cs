@@ -26,7 +26,8 @@ namespace CalorieCounterBusiness.Services
                    MealCategoryName=x.MealCategoryEntity.MealCategoryName,
                    FoodPortion=x.FoodPortion,
                    FoodTotalCalorie=x.FoodTotalCalorie,
-                   MealTime=x.MealTime
+                   MealTime=x.MealTime,
+                   MealId=x.MealID
                }).OrderByDescending(x=>x.MealTime).ToList();
                 return MealEntitieTable;
             }
@@ -36,6 +37,23 @@ namespace CalorieCounterBusiness.Services
             using (_db = new CalorieCounterContext())
             {
                 return _db.MealCategoryEntityTable.ToList();
+            }
+        }
+        public bool FoodAddIsCheck(string foodname)
+        {
+            using (_db = new CalorieCounterContext())
+            {
+                FoodEntity foodEntity = new FoodEntity();
+                foodEntity.FoodName=foodname;
+                 foodEntity = _db.FoodEntityTable.Find(foodEntity);
+                if (foodEntity == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
         public int FoodIdAdd(FoodEntity food)
@@ -61,6 +79,44 @@ namespace CalorieCounterBusiness.Services
             using (_db = new CalorieCounterContext())
             {
                 _db.MealEntityTable.Add(meal);
+                int count = _db.SaveChanges();
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        public bool MealEdit(MealEntity meal)
+        {
+            using (_db=new CalorieCounterContext())
+            {
+                MealEntity mealEntity = _db.MealEntityTable.Find(meal.MealID);
+                mealEntity.MealCategoryID = meal.MealCategoryID;
+                mealEntity.MealTime = meal.MealTime;
+                mealEntity.FoodID= meal.FoodID;
+                mealEntity.FoodPortion = meal.FoodPortion;
+                int count = _db.SaveChanges();
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            
+        }
+        public bool MealDelete(MealEntity meal)
+        {
+            using (_db = new CalorieCounterContext())
+            {
+               MealEntity mealEntity = _db.MealEntityTable.Find(meal.MealID);
+                _db.MealEntityTable.Remove(mealEntity);
                 int count = _db.SaveChanges();
                 if (count > 0)
                 {

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,9 +48,105 @@ namespace CalorieCounterPresentation.UserUI
             switch (name)
             {
                 case "UserMealFormAddButton": MealAdd(); break;
-                    //case "UserMealFormEditButton": MealEdit(); break;
-                    //case "UserMealFormDeleteButton": MealDelete(); break;
-                    //case "UserMealFormSearchButton": MealSearch(); break;
+                case "UserMealFormEditButton": MealEdit(); break;
+                case "UserMealFormDeleteButton": MealDelete(); break;
+                case "UserMealFormSearchButton": MealSearch(); break;
+            }
+        }
+
+        private void MealSearch()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void MealDelete()
+        {
+            try
+            {
+                _mealEntity = new MealEntity();
+               _mealEntity.MealID= id;
+
+
+                bool IsCheck = _userMealService.MealDelete(_mealEntity);
+                if (IsCheck)
+                {
+                    MessageBox.Show($"id {_mealEntity.MealID} has been deleted successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MealFill();
+                    MealTextBoxClear();
+                }
+                else
+                {
+                    MessageBox.Show("Please try again!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MealTextBoxClear();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Registration already exists!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MealEdit()
+        {
+            int MealCategoryId = (int)UserMealFormMealCategoryCmbox.SelectedValue;
+            var MealTime = dateTimePicker1.Value.Date;
+            string FoodName= UserMealFormFoodNameTextBox.Text;
+            _foodEntity = new FoodEntity();
+            _foodEntity.FoodName = FoodName;
+            int foodEntityId =_userMealService.FoodIdAdd(_foodEntity);
+
+
+            var FoodPortion = 0;
+            int _DefaultPortion = 0;
+            bool _IsParsedPortion = int.TryParse(UserMealFormFoodPortionTextBox.Text.Trim(), out _DefaultPortion);
+            if (_IsParsedPortion)
+                FoodPortion = int.Parse(UserMealFormFoodPortionTextBox.Text.Trim());
+            else
+                FoodPortion = _DefaultPortion;
+
+
+        
+
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(FoodName) && FoodPortion != 0 && MealCategoryId != 0 && MealTime != null)
+                {
+                    _mealEntity = new MealEntity();
+                   
+                    _mealEntity.MealCategoryID = MealCategoryId;
+                    _mealEntity.MealTime = MealTime;
+                    _mealEntity.FoodID = foodEntityId;
+                    
+                    _mealEntity.MealID = id;
+                    _mealEntity.UserID = _userId;
+                    _mealEntity.FoodPortion = FoodPortion;
+                    _mealEntity.FoodTotalCalorie = ComeTotalCalorie();
+                    UserMealFormFoodTotalCalorieLabel.Text = ComeTotalCalorie().ToString();
+
+                    bool IscheckEdit = _userMealService.MealEdit(_mealEntity);
+                    if (IscheckEdit)
+                    {
+                        MessageBox.Show("Editting Successful!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MealFill();
+                        MealTextBoxClear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please try again!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MealTextBoxClear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("please enter food name,foodcategoryıd and foodcalorie!");
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Registration already exists!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -187,6 +284,27 @@ namespace CalorieCounterPresentation.UserUI
         private void UserMealFormAddButton_Click(object sender, EventArgs e)
         {
 
+        }
+        int id;
+        bool FoodId;
+        private void UserMealFormDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UserMealFormMealCategoryCmbox.Text = UserMealFormDataGridView.CurrentRow.Cells[3].Value.ToString();
+            UserMealFormMealCategoryCmbox.DisplayMember = "MealCategoryName";
+            UserMealFormMealCategoryCmbox.ValueMember = "MealCategoryID";
+            dateTimePicker1.Value = (DateTime)UserMealFormDataGridView.CurrentRow.Cells[6].Value;
+            UserMealFormFoodNameTextBox.Text = UserMealFormDataGridView.CurrentRow.Cells[2].Value.ToString();
+           
+            UserMealFormFoodPortionTextBox.Text = UserMealFormDataGridView.CurrentRow.Cells[4].Value.ToString();
+            id = int.Parse(UserMealFormDataGridView.CurrentRow.Cells[7].Value.ToString());
+            
+            //AdminFoodFormFoodNameTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[1].Value.ToString();
+            //id = int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[0].Value.ToString());
+            //int _foodcategoryid = int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString());
+            //string foodcategoryname = _foodService.ComeFoodCategoryName(_foodcategoryid);
+            //AdminFoodFormFoodCategoryNameTextBox.Text = foodcategoryname;
+            //AdminFoodFormFoodCalorieTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[4].Value.ToString();
+            //AdminFoodFormEditButton.Enabled = true;
         }
     }
 }
