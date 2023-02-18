@@ -1,4 +1,5 @@
 ﻿using CalorieCounterBusiness.Services;
+using CalorieCounterDataAccess;
 using CalorieCounterEntity;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,14 @@ namespace CalorieCounterPresentation.UserUI
         MealService _userMealService;
         MealEntity _mealEntity;
         FoodEntity _foodEntity;
-        int _userId = 3;
-        public UserMealForm()
+        CalorieCounterContext _db;
+        UserEntity _user;
+        int _userId ;
+        public UserMealForm(UserEntity currentuser)
         {
             InitializeComponent();
+            _user = currentuser;
+            _userId = _user.UserID;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -30,7 +35,7 @@ namespace CalorieCounterPresentation.UserUI
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            MainUserForm _MainUserForm = new MainUserForm();
+            MainUserForm _MainUserForm = new MainUserForm(_user);
             _MainUserForm.Show();
             this.Hide();
         }
@@ -64,7 +69,7 @@ namespace CalorieCounterPresentation.UserUI
 
             //CategoryID = (int)cmbKategoriler.SelectedValue
             int MealCategoryId = (int)UserMealFormMealCategoryCmbox.SelectedValue;
-            var MealTime = dateTimePicker1.Value;
+            var MealTime = dateTimePicker1.Value.Date;
             var FoodName = UserMealFormFoodNameTextBox.Text;
 
             var FoodPortion = 0;
@@ -87,7 +92,7 @@ namespace CalorieCounterPresentation.UserUI
                     _foodEntity.FoodName = FoodName;
                     int FoodId = _userMealService.FoodIdAdd(_foodEntity);
                     _mealEntity.FoodID = FoodId;
-                    /* bakılacak*/
+                 
                     _mealEntity.UserID = _userId;
                     _mealEntity.FoodPortion = FoodPortion;
                     _mealEntity.FoodTotalCalorie = ComeTotalCalorie();
@@ -150,6 +155,17 @@ namespace CalorieCounterPresentation.UserUI
 
         private void UserMealForm_Load(object sender, EventArgs e)
         {
+            using (_db = new CalorieCounterContext())
+            {
+                List<FoodEntity> _FoodEntityList = _db.FoodEntityTable.ToList();
+                AutoCompleteStringCollection aca = new AutoCompleteStringCollection();
+                foreach (FoodEntity item in _FoodEntityList)
+                {
+                    aca.Add(item.FoodName);
+
+                }
+                UserMealFormFoodNameTextBox.AutoCompleteCustomSource = aca;
+            }
             UserMealFormLabel8.Text = "100 gr";
             ComboboxFill();
             MealFill();

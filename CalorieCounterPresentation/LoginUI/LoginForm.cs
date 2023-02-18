@@ -46,6 +46,7 @@ namespace CalorieCounterPresentation.LoginUI
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+
         }
 
         // Forgot Password Button
@@ -96,6 +97,7 @@ namespace CalorieCounterPresentation.LoginUI
             UserEntity _UserEntity = new UserEntity();
             _UserEntity.UserMail = LoginFormUserMailTextBox.Text;
             _UserEntity.UserPassword = LoginFormUserPasswordTextBox.Text;
+            
 
             string _LoginCheck = _UserService.UserLogin(_UserEntity);
             if (_LoginCheck == "3")
@@ -116,7 +118,9 @@ namespace CalorieCounterPresentation.LoginUI
                 }
                 else
                 {
-                    MainUserForm _MainUserForm = new MainUserForm();
+
+                  _UserEntity=  _UserService.UserStateChange(_UserEntity);
+                    MainUserForm _MainUserForm = new MainUserForm(_UserEntity);
                     _MainUserForm.Show();
                     this.Hide();
                 }

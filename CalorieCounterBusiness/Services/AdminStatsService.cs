@@ -12,23 +12,31 @@ namespace CalorieCounterBusiness.Services
     {
         CalorieCounterContext _db;
         UserEntity _userEntity;
-        public List<UserEntity> UserServiceFill()
+        public dynamic UserServiceFill()
         {
             using (_db = new CalorieCounterContext())
             {
 
-                return _db.UserEntityTable.ToList();
-
+                var UserServiceFill = _db.UserEntityTable.Select(x => new
+                {
+                    UserId=x.UserID,
+                    UserMail = x.UserMail,
+                    UserName = x.UserName,
+                    UserSurname = x.UserSurname
+                }).ToList();
+                return UserServiceFill;
             }
 
 
 
         }
+
+    
         public int BreakfastTotalCalorie(UserEntity user)
         {
             using (_db = new CalorieCounterContext())
             {
-                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 1 && x.MealTime==DateTime.Today )
+                int TotalCalorie = _db.MealEntityTable.Where(x => x.UserID == user.UserID && x.MealCategoryID == 1 && x.MealTime== DateTime.Today)
                 .Sum(x => x.FoodTotalCalorie);
                 return TotalCalorie;
             }

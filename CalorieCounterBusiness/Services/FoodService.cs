@@ -34,11 +34,18 @@ namespace CalorieCounterBusiness.Services
         /// Returns foodentity table as a list
         /// </summary>
         /// <returns></returns>
-        public List<FoodEntity> FoodEntitie()
+        public dynamic FoodEntitie()
         {
             using (_db = new CalorieCounterContext())
             {
-                return _db.FoodEntityTable.ToList();
+             var FoodList=_db.FoodEntityTable.Select(x => new
+                {
+                    FoodName = x.FoodName,
+                    FoodCategoryName = x.FoodCategoryEntity.FoodCategoryName,
+                    PhotographId = x.PhotographID,
+                    FoodCalorie = x.FoodCalorie
+                }).OrderBy(x=>x.FoodName).ToList();
+                return FoodList;
             }
         }
 

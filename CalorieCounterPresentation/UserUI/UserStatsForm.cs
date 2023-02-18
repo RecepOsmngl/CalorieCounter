@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalorieCounterEntity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace CalorieCounterPresentation.UserUI
 {
     public partial class UserStatsForm : Form
     {
-        public UserStatsForm()
+        UserEntity _user;
+        public UserStatsForm(UserEntity currentuser)
         {
             InitializeComponent();
+            _user = currentuser; 
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -24,7 +27,7 @@ namespace CalorieCounterPresentation.UserUI
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            MainUserForm _MainUserForm = new MainUserForm();
+            MainUserForm _MainUserForm = new MainUserForm(_user);
             _MainUserForm.Show();
             this.Hide();
         }

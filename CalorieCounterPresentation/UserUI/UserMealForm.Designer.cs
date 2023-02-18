@@ -98,6 +98,8 @@
             // 
             // UserMealFormFoodNameTextBox
             // 
+            this.UserMealFormFoodNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.UserMealFormFoodNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.UserMealFormFoodNameTextBox.Location = new System.Drawing.Point(435, 125);
             this.UserMealFormFoodNameTextBox.Name = "UserMealFormFoodNameTextBox";
             this.UserMealFormFoodNameTextBox.Size = new System.Drawing.Size(225, 22);

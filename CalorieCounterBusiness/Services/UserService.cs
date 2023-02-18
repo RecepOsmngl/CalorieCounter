@@ -13,6 +13,14 @@ namespace CalorieCounterBusiness.Services
     {
         CalorieCounterContext _db = new CalorieCounterContext();
 
+        public UserEntity UserStateChange(UserEntity user)
+        {
+            UserEntity Loginuser = _db.UserEntityTable.Where(x => x.UserMail == user.UserMail).First();
+
+            return Loginuser;
+        }
+
+
         // 1.Login Form Methods
         // 2.Registration Form Methods
         // 3.Change Password Form Methods

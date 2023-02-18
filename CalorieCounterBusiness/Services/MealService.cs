@@ -14,11 +14,21 @@ namespace CalorieCounterBusiness.Services
 
 
 
-        public List<MealEntity> MealEntitie(int userid)
+        public dynamic MealEntitie(int userid)
         {
             using (_db = new CalorieCounterContext())
             {
-                return _db.MealEntityTable.Where(x => x.UserID == userid).ToList();
+               var MealEntitieTable= _db.MealEntityTable.Where(x => x.UserID == userid).Select(x => new
+               {
+                   UserId=x.UserID,
+                   UserName=x.UserEntity.UserName,
+                   FoodName=x.FoodEntity.FoodName,
+                   MealCategoryName=x.MealCategoryEntity.MealCategoryName,
+                   FoodPortion=x.FoodPortion,
+                   FoodTotalCalorie=x.FoodTotalCalorie,
+                   MealTime=x.MealTime
+               }).OrderByDescending(x=>x.MealTime).ToList();
+                return MealEntitieTable;
             }
         }
         public List<MealCategoryEntity> MealCategoryEntitie()

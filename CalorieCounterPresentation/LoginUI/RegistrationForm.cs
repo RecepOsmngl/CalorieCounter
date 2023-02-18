@@ -51,6 +51,7 @@ namespace CalorieCounterPresentation.LoginUI
             _UserEntity.UserPassword = RegistrationFormUserPasswordTextBox.Text.Trim();
             _UserEntity.UserName = RegistrationFormUserNameTextBox.Text.Trim();
             _UserEntity.UserSurname = RegistrationFormUserSurnameTextBox.Text.Trim();
+            _UserEntity.UserState = "false";
 
             // Height
             int _DefaultHeight = 0;

@@ -87,11 +87,11 @@ namespace CalorieCounterPresentation.AdminUI
         public void UsersFill()
         {
             AdminStatsFormUserDgv.DataSource = _adminStatsService.UserServiceFill();
-            AdminStatsFormUserDgv.Columns["UserPassword"].Visible = false;
-            AdminStatsFormUserDgv.Columns["UserHeight"].Visible = false;
-            AdminStatsFormUserDgv.Columns["UserWeight"].Visible = false;
-            AdminStatsFormUserDgv.Columns["UserGender"].Visible = false;
-            AdminStatsFormUserDgv.Columns["MealEntity"].Visible = false;
+            //AdminStatsFormUserDgv.Columns["UserPassword"].Visible = false;
+            //AdminStatsFormUserDgv.Columns["UserHeight"].Visible = false;
+            //AdminStatsFormUserDgv.Columns["UserWeight"].Visible = false;
+            //AdminStatsFormUserDgv.Columns["UserGender"].Visible = false;
+            //AdminStatsFormUserDgv.Columns["MealEntity"].Visible = false;
 
 
         }
@@ -113,6 +113,8 @@ namespace CalorieCounterPresentation.AdminUI
             AdminStatsFormUsersMealDgv.Columns[3].Name = "Snack Total Calorie";
             AdminStatsFormUsersMealDgv.Columns[4].Name = "Total Calorie";
             AdminStatsFormUsersMealDgv.Rows.Add(_TotalBreakfastCalorie, _TotalLunchCalorie, _TotalDinnerCalorie, _TotalSnackCalorie, _TotalCalorie);
+
+            //AdminStatsFormUsersMealDgv.DataSource = _adminStatsService.FoodEntitie();
 
 
 

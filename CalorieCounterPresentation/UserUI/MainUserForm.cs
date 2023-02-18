@@ -1,4 +1,5 @@
-﻿using CalorieCounterPresentation.LoginUI;
+﻿using CalorieCounterEntity;
+using CalorieCounterPresentation.LoginUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,12 @@ namespace CalorieCounterPresentation.UserUI
 {
     public partial class MainUserForm : Form
     {
-        public MainUserForm()
+        UserEntity _user;
+        public MainUserForm(UserEntity currentuser)
         {
             InitializeComponent();
+            _user= currentuser;
+
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -32,14 +36,14 @@ namespace CalorieCounterPresentation.UserUI
 
         private void MainUserFormMealButton_Click(object sender, EventArgs e)
         {
-            UserMealForm _UserMealForm = new UserMealForm();
+            UserMealForm _UserMealForm = new UserMealForm(_user);
             _UserMealForm.Show();
             this.Hide();
         }
 
         private void MainUserFormStatsButton_Click(object sender, EventArgs e)
         {
-            UserStatsForm _UserStatsForm = new UserStatsForm();
+            UserStatsForm _UserStatsForm = new UserStatsForm(_user);
             _UserStatsForm.Show();
             this.Hide();
         }

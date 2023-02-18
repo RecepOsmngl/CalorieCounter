@@ -157,18 +157,20 @@ namespace CalorieCounterPresentation.AdminUI
             //    }
             //}
 
-            var foodCategoryId = int.Parse(AdminFoodFormFoodCategoryNameTextBox.Text.Trim());
+            _foodCategoryEntity = new FoodCategoryEntity();
+            _foodCategoryEntity.FoodCategoryName = AdminFoodFormFoodCategoryNameTextBox.Text.Trim();
+            int foodEntityFoodCategoryId = _foodService.FoodIdAdd(_foodCategoryEntity);
             var foodCalorie = int.Parse(AdminFoodFormFoodCalorieTextBox.Text.Trim());
             foodName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(foodName);
 
             try
             {
-                if (!string.IsNullOrWhiteSpace(foodName) && foodCategoryId != null && foodCalorie != null)
+                if (!string.IsNullOrWhiteSpace(foodName) && foodEntityFoodCategoryId != null && foodCalorie != null)
                 {
                     _foodEntity = new FoodEntity();
                     _foodEntity.FoodID = id;
                     _foodEntity.FoodName = foodName;
-                    _foodEntity.FoodCategoryID = foodCategoryId;
+                    _foodEntity.FoodCategoryID = foodEntityFoodCategoryId;
                     _foodEntity.FoodCalorie = foodCalorie;
 
                     bool IsCheck = _foodService.FoodEdit(_foodEntity);
@@ -300,9 +302,9 @@ namespace CalorieCounterPresentation.AdminUI
         public void FoodFill()
         {
             AdminFoodFormDataGridView.DataSource = _foodService.FoodEntitie();
-            AdminFoodFormDataGridView.Columns["MealEntity"].Visible = false;
-            AdminFoodFormDataGridView.Columns["FoodCategoryEntity"].Visible = false;
-            AdminFoodFormDataGridView.Columns["PhotographEntity"].Visible = false;
+            //AdminFoodFormDataGridView.Columns["MealEntity"].Visible = false;
+            //AdminFoodFormDataGridView.Columns["FoodCategoryEntity"].Visible = false;
+            //AdminFoodFormDataGridView.Columns["PhotographEntity"].Visible = false;
         }
         //Textboxları temizleyen fonksiyon.
         private void FoodTextBoxClear()
@@ -325,6 +327,17 @@ namespace CalorieCounterPresentation.AdminUI
 
                 }
                 AdminFoodFormFoodCategoryNameTextBox.AutoCompleteCustomSource = ac;
+            }
+            using (_db=new CalorieCounterContext())
+            {
+                List<FoodEntity> _FoodEntityList = _db.FoodEntityTable.ToList();
+                AutoCompleteStringCollection aca = new AutoCompleteStringCollection();
+                foreach (FoodEntity item in _FoodEntityList)
+                {
+                    aca.Add(item.FoodName);
+
+                }
+               AdminFoodFormFoodNameTextBox.AutoCompleteCustomSource = aca;
             }
 
             FoodFill();

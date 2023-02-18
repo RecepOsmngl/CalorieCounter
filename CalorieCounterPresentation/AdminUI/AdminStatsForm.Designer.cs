@@ -103,6 +103,7 @@
             // 
             // AdminStatsFormUserDgv
             // 
+            this.AdminStatsFormUserDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AdminStatsFormUserDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AdminStatsFormUserDgv.Location = new System.Drawing.Point(12, 84);
             this.AdminStatsFormUserDgv.Name = "AdminStatsFormUserDgv";
@@ -113,6 +114,7 @@
             // 
             // AdminStatsFormUsersMealDgv
             // 
+            this.AdminStatsFormUsersMealDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AdminStatsFormUsersMealDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AdminStatsFormUsersMealDgv.Location = new System.Drawing.Point(12, 284);
             this.AdminStatsFormUsersMealDgv.Name = "AdminStatsFormUsersMealDgv";
