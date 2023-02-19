@@ -25,11 +25,12 @@ namespace CalorieCounterPresentation.UserUI
         }
         private void UserStatsForm_Load(object sender, EventArgs e)
         {
-            CreateCountUsersMealDgv();
             dgvBreakfast.Hide();
             dgvLunch.Hide();
             dgvDinner.Hide();
             dgvSnacks.Hide();
+            dgvUserAverageCalorie.Hide();
+            dgvUserUserCalorie.Hide();
             UserStatsFormUsersMealDgv.Show();
         }
 
@@ -125,21 +126,12 @@ namespace CalorieCounterPresentation.UserUI
             dgvLunch.Hide();
             dgvDinner.Hide();
             dgvSnacks.Hide();
+            dgvUserUserCalorie.Hide();
+            dgvUserAverageCalorie.Hide();
             UserStatsFormUsersMealDgv.Show();
             CalorieCalculator();
         }
 
-        #region RunTime-DataGridView
-        Label lblBreakfast = new Label();
-        Label lblLunch = new Label();
-        Label lblDinner = new Label();
-        Label lblSnacks = new Label();
-
-        DataGridView dgvBreakfast = new DataGridView();
-        DataGridView dgvLunch = new DataGridView();
-        DataGridView dgvDinner = new DataGridView();
-        DataGridView dgvSnacks = new DataGridView();
-        #endregion
 
         private void TotalFoodList()
         {
@@ -193,51 +185,10 @@ namespace CalorieCounterPresentation.UserUI
             dgvDinner.Show();
             dgvSnacks.Show();
             UserStatsFormUsersMealDgv.Hide();
+            dgvUserAverageCalorie.Hide();
+            dgvUserUserCalorie.Hide();
             TotalFoodList();
         }
-
-        private void CreateCountUsersMealDgv()
-        {
-            int Width = UserStatsFormUsersMealDgv.Width / 4;    
-            dgvBreakfast.Location = new System.Drawing.Point(12, 300);
-            dgvBreakfast.Size = new System.Drawing.Size(Width, UserStatsFormUsersMealDgv.Height - 16);
-            dgvBreakfast.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgvLunch.Location = new System.Drawing.Point(dgvBreakfast.Location.X + Width, 300);
-            dgvLunch.Size = new System.Drawing.Size(Width, UserStatsFormUsersMealDgv.Height - 16);
-            dgvLunch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgvDinner.Location = new System.Drawing.Point(dgvLunch.Location.X + Width, 300);
-            dgvDinner.Size = new System.Drawing.Size(Width, UserStatsFormUsersMealDgv.Height - 16);
-            dgvDinner.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgvSnacks.Location = new System.Drawing.Point(dgvDinner.Location.X + Width, 300);
-            dgvSnacks.Size = new System.Drawing.Size(Width, UserStatsFormUsersMealDgv.Height - 16);
-            dgvSnacks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            lblBreakfast.Location = new System.Drawing.Point(12, 284);
-            lblLunch.Location = new System.Drawing.Point(lblBreakfast.Location.X + Width, 284);
-            lblDinner.Location = new System.Drawing.Point(lblLunch.Location.X + Width, 284);
-            lblSnacks.Location = new System.Drawing.Point(lblDinner.Location.X + Width, 284);
-
-            lblBreakfast.Text = "Breakfast";
-            lblLunch.Text = "Lunch";
-            lblDinner.Text = "Dinner";
-            lblSnacks.Text = "Snacks";
-
-            this.Controls.Add(dgvBreakfast);
-            this.Controls.Add(dgvLunch);
-            this.Controls.Add(dgvDinner);
-            this.Controls.Add(dgvLunch);
-            this.Controls.Add(dgvSnacks);
-
-            this.Controls.Add(lblBreakfast);
-            this.Controls.Add(lblLunch);
-            this.Controls.Add(lblDinner);
-            this.Controls.Add(lblSnacks);
-
-        }
-
 
         private void UserStatFormWeeklyMealCompare_Click(object sender, EventArgs e)
         {
@@ -246,6 +197,8 @@ namespace CalorieCounterPresentation.UserUI
             dgvDinner.Show();
             dgvSnacks.Show();
             UserStatsFormUsersMealDgv.Hide();
+            dgvUserAverageCalorie.Hide();
+            dgvUserUserCalorie.Hide();
             WeeklyMealCompare();  
         }
 
@@ -286,6 +239,8 @@ namespace CalorieCounterPresentation.UserUI
             dgvDinner.Show();
             dgvSnacks.Show();
             UserStatsFormUsersMealDgv.Hide();
+            dgvUserUserCalorie.Hide();
+            dgvUserAverageCalorie.Hide();
             MonthlyMealCompare();
         }
 
@@ -328,14 +283,11 @@ namespace CalorieCounterPresentation.UserUI
             dgvLunch.Hide();
             dgvDinner.Hide();
             dgvSnacks.Hide();
+            dgvUserAverageCalorie.Hide();
+            dgvUserUserCalorie.Hide();
             UserStatsFormUsersMealDgv.Show();
             CalorieCalculator();
         }
-
-
-
-
-
 
 
 
@@ -353,122 +305,42 @@ namespace CalorieCounterPresentation.UserUI
         private void UserStatsFormMealCategoryButton_Click(object sender, EventArgs e)
         {
             WeeklyMealCompare();
-            CreateCountUsersMealDgv();
         }
 
         private void UserStatsFormYearlyButton_Click(object sender, EventArgs e)
         {
             MonthlyMealCompare();
-            CreateCountUsersMealDgv();
         }
 
         // KIYAS RAPORLARI
 
-        // CATEGORY WEEKLY
+        // CATEGORY 
         private void UserStatsFormMonthlyButton_Click(object sender, EventArgs e)
         {
             DataGridviewClear();
-            WeeklyDvg1.DataSource = _ComparisonService.UserWeeklyFill(_selectuser);
-            WeeklyDvg2.DataSource = _ComparisonService.UserWeeklyFill2(_selectuser);
-        }
-
-        // WeeklyDVG1
-        DataGridView WeeklyDvg1 = new DataGridView();
-        private void CreateCategoryDgv1()
-        {
-            int Width = UserStatsFormUsersMealDgv.Width / 2;
+            dgvUserUserCalorie.DataSource = _ComparisonService.UserMonthlyFill(_selectuser);
+            dgvUserAverageCalorie.DataSource = _ComparisonService.UserMontlyhFill2(_selectuser);
+            dgvUserAverageCalorie.Show();
+            dgvUserUserCalorie.Show();
+            dgvBreakfast.Hide();
+            dgvLunch.Hide();
+            dgvDinner.Hide();
+            dgvSnacks.Hide();
             UserStatsFormUsersMealDgv.Hide();
-            WeeklyDvg1.Location = new System.Drawing.Point(12, 300);
-            WeeklyDvg1.Size = new System.Drawing.Size(Width, UserStatsFormUsersMealDgv.Height - 16);
-            WeeklyDvg1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            this.Controls.Add(WeeklyDvg1);
         }
 
-
-        private void UserCountReportFill1(dynamic _breakfastFoodList)
-        {
-            UserStatsFormUsersMealDgv.ReadOnly = true;
-            UserStatsFormUsersMealDgv.AllowUserToDeleteRows = false;
-            WeeklyDvg1.DataSource = _breakfastFoodList;
-        }
-
-        // ------------------------------
-
-        // WeeklyDVG2
-        DataGridView WeeklyDvg2 = new DataGridView();
-        private void CreateCategoryDgv2()
-        {
-            int Width = UserStatsFormUsersMealDgv.Width / 2;
-            UserStatsFormUsersMealDgv.Hide();
-            WeeklyDvg2.Location = new System.Drawing.Point(12, 300);
-            WeeklyDvg2.Size = new System.Drawing.Size(Width, UserStatsFormUsersMealDgv.Height - 16);
-            WeeklyDvg2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            this.Controls.Add(WeeklyDvg2);
-        }
-
-
-        private void UserCountReportFill2(dynamic _breakfastFoodList)
-        {
-            UserStatsFormUsersMealDgv.ReadOnly = true;
-            UserStatsFormUsersMealDgv.AllowUserToDeleteRows = false;
-            WeeklyDvg2.DataSource = _breakfastFoodList;
-        }
-
-
-        // KIYAS RAPORLARI
-
-        // CATEGORY MONTHLY
         private void UserStatsFormWeeklyButton_Click(object sender, EventArgs e)
         {
             DataGridviewClear();
-            MonthlyDvg1.DataSource = _ComparisonService.UserWeeklyFill(_selectuser);
-            MonthlyDvg2.DataSource = _ComparisonService.UserWeeklyFill2(_selectuser);
-        }
-
-        // MonthlyDVG1
-        DataGridView MonthlyDvg1 = new DataGridView();
-        private void CreateCategoryDgv3()
-        {
-            int Width = UserStatsFormUsersMealDgv.Width / 2;
+            dgvUserUserCalorie.DataSource = _ComparisonService.UserWeeklyFill(_selectuser);
+            dgvUserAverageCalorie.DataSource = _ComparisonService.UserWeeklyFill2(_selectuser);
+            dgvUserAverageCalorie.Show();
+            dgvUserUserCalorie.Show();
+            dgvBreakfast.Hide();
+            dgvLunch.Hide();
+            dgvDinner.Hide();
+            dgvSnacks.Hide();
             UserStatsFormUsersMealDgv.Hide();
-            MonthlyDvg1.Location = new System.Drawing.Point(12, 300);
-            MonthlyDvg1.Size = new System.Drawing.Size(Width, UserStatsFormUsersMealDgv.Height - 16);
-            MonthlyDvg1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            this.Controls.Add(MonthlyDvg1);
-        }
-
-
-        private void UserCountReportFill3(dynamic _breakfastFoodList)
-        {
-            UserStatsFormUsersMealDgv.ReadOnly = true;
-            UserStatsFormUsersMealDgv.AllowUserToDeleteRows = false;
-            MonthlyDvg1.DataSource = _breakfastFoodList;
-        }
-
-        // ------------------------------
-
-        // MonthlyDVG2
-        DataGridView MonthlyDvg2 = new DataGridView();
-        private void CreateCategoryDgv4()
-        {
-            int Width = UserStatsFormUsersMealDgv.Width / 2;
-            UserStatsFormUsersMealDgv.Hide();
-            MonthlyDvg2.Location = new System.Drawing.Point(12, 300);
-            MonthlyDvg2.Size = new System.Drawing.Size(Width, UserStatsFormUsersMealDgv.Height - 16);
-            MonthlyDvg2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            this.Controls.Add(MonthlyDvg2);
-        }
-
-
-        private void UserCountReportFill4(dynamic _breakfastFoodList)
-        {
-            UserStatsFormUsersMealDgv.ReadOnly = true;
-            UserStatsFormUsersMealDgv.AllowUserToDeleteRows = false;
-            MonthlyDvg2.DataSource = _breakfastFoodList;
         }
     }
 }

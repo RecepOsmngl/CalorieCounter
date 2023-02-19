@@ -83,21 +83,18 @@ namespace CalorieCounterPresentation.AdminUI
         public void UsersFill()
         {
             AdminStatsFormUserDgv.DataSource = _adminStatsService.UserServiceFill();
-            //AdminStatsFormUserDgv.Columns["UserPassword"].Visible = false;
-            //AdminStatsFormUserDgv.Columns["UserHeight"].Visible = false;
-            //AdminStatsFormUserDgv.Columns["UserWeight"].Visible = false;
-            //AdminStatsFormUserDgv.Columns["UserGender"].Visible = false;
-            //AdminStatsFormUserDgv.Columns["MealEntity"].Visible = false;
+           
         }
 
         private void AdminStatsForm_Load(object sender, EventArgs e)
         {
             UsersFill();
-            CreateCountUsersMealDgv();
             dgvBreakfast.Hide();
             dgvLunch.Hide();
             dgvDinner.Hide();
             dgvSnacks.Hide();
+            dgvCategoryComparisonAverageCalorie.Hide();
+            dgvCategoryComparisonUserCalorie.Hide();
             AdminStatsFormUsersMealDgv.Show();
         }
 
@@ -130,21 +127,11 @@ namespace CalorieCounterPresentation.AdminUI
             dgvLunch.Hide();
             dgvDinner.Hide();
             dgvSnacks.Hide();
+            dgvCategoryComparisonAverageCalorie.Hide();
+            dgvCategoryComparisonUserCalorie.Hide();
             AdminStatsFormUsersMealDgv.Show();
             CalorieCalculator();
         }
-
-        #region RunTime-DataGridView
-        Label lblBreakfast = new Label();
-        Label lblLunch = new Label();
-        Label lblDinner = new Label();
-        Label lblSnacks = new Label();
-
-        DataGridView dgvBreakfast = new DataGridView();
-        DataGridView dgvLunch = new DataGridView();
-        DataGridView dgvDinner = new DataGridView();
-        DataGridView dgvSnacks = new DataGridView();
-        #endregion
 
         private void TotalFoodList()
         {
@@ -196,51 +183,10 @@ namespace CalorieCounterPresentation.AdminUI
             dgvDinner.Show();
             dgvSnacks.Show();
             AdminStatsFormUsersMealDgv.Hide();
+            dgvCategoryComparisonAverageCalorie.Hide();
+            dgvCategoryComparisonUserCalorie.Hide();
             TotalFoodList();
         }
-
-        private void CreateCountUsersMealDgv()
-        {
-            int Width = AdminStatsFormUsersMealDgv.Width / 4;
-            dgvBreakfast.Location = new System.Drawing.Point(12, 300);
-            dgvBreakfast.Size = new System.Drawing.Size(Width, AdminStatsFormUsersMealDgv.Height - 16);
-            dgvBreakfast.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgvLunch.Location = new System.Drawing.Point(dgvBreakfast.Location.X + Width, 300);
-            dgvLunch.Size = new System.Drawing.Size(Width, AdminStatsFormUsersMealDgv.Height - 16);
-            dgvLunch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgvDinner.Location = new System.Drawing.Point(dgvLunch.Location.X + Width, 300);
-            dgvDinner.Size = new System.Drawing.Size(Width, AdminStatsFormUsersMealDgv.Height - 16);
-            dgvDinner.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgvSnacks.Location = new System.Drawing.Point(dgvDinner.Location.X + Width, 300);
-            dgvSnacks.Size = new System.Drawing.Size(Width, AdminStatsFormUsersMealDgv.Height - 16);
-            dgvSnacks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            lblBreakfast.Location = new System.Drawing.Point(12, 284);
-            lblLunch.Location = new System.Drawing.Point(lblBreakfast.Location.X + Width, 284);
-            lblDinner.Location = new System.Drawing.Point(lblLunch.Location.X + Width, 284);
-            lblSnacks.Location = new System.Drawing.Point(lblDinner.Location.X + Width, 284);
-
-            lblBreakfast.Text = "Breakfast";
-            lblLunch.Text = "Lunch";
-            lblDinner.Text = "Dinner";
-            lblSnacks.Text = "Snacks";
-
-            this.Controls.Add(dgvBreakfast);
-            this.Controls.Add(dgvLunch);
-            this.Controls.Add(dgvDinner);
-            this.Controls.Add(dgvLunch);
-            this.Controls.Add(dgvSnacks);
-
-            this.Controls.Add(lblBreakfast);
-            this.Controls.Add(lblLunch);
-            this.Controls.Add(lblDinner);
-            this.Controls.Add(lblSnacks);
-
-        }
-
 
         private void UserStatFormWeeklyMealCompare_Click(object sender, EventArgs e)
         {
@@ -249,6 +195,8 @@ namespace CalorieCounterPresentation.AdminUI
             dgvDinner.Show();
             dgvSnacks.Show();
             AdminStatsFormUsersMealDgv.Hide();
+            dgvCategoryComparisonAverageCalorie.Hide();
+            dgvCategoryComparisonUserCalorie.Hide();
             WeeklyMealCompare();
         }
 
@@ -289,6 +237,8 @@ namespace CalorieCounterPresentation.AdminUI
             dgvDinner.Show();
             dgvSnacks.Show();
             AdminStatsFormUsersMealDgv.Hide();
+            dgvCategoryComparisonAverageCalorie.Hide();
+            dgvCategoryComparisonUserCalorie.Hide();
             MonthlyMealCompare();
         }
 
@@ -325,23 +275,19 @@ namespace CalorieCounterPresentation.AdminUI
             var BreakfastMonthlyMealCompare = _adminStatsService.BreakfastMonthlyMealCompareList(_selectuser);
             return BreakfastMonthlyMealCompare;
         }
-
         private void UserStatsFormMealCategoryButton_Click(object sender, EventArgs e)
         {
             WeeklyMealCompare();
-            CreateCountUsersMealDgv();
         }
 
         private void UserStatFormMonthlyMealCompare_Click_1(object sender, EventArgs e)
         {
             MonthlyMealCompare();
-            CreateCountUsersMealDgv();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             TotalFoodList();
-            CreateCountUsersMealDgv();
         }
 
 
@@ -352,33 +298,37 @@ namespace CalorieCounterPresentation.AdminUI
         private void UserStatsFormMonthlyButton_Click(object sender, EventArgs e)
         {
             DataGridviewClear();
-            AdminStatsFormUsersMealDgv.DataSource = _ComparisonServiceAdmin.AdminWeeklyFill(_selectuser);
+            dgvCategoryComparisonAverageCalorie.DataSource = _ComparisonServiceAdmin.AdminMonthlyFill(_selectuser);
+            dgvCategoryComparisonUserCalorie.DataSource = _ComparisonServiceAdmin.AdminMontlyhFill2(_selectuser);
+            dgvCategoryComparisonAverageCalorie.Show();
+            dgvCategoryComparisonUserCalorie.Show();
+            dgvBreakfast.Hide();
+            dgvLunch.Hide();
+            dgvDinner.Hide();
+            dgvSnacks.Hide();
+            AdminStatsFormUsersMealDgv.Hide();
         }
 
         // MONTHLY CATEGORY COMPARISON BUTTON
         private void UserStatsFormWeeklyButton_Click(object sender, EventArgs e)
         {
             DataGridviewClear();
-            AdminStatsFormUsersMealDgv.DataSource = _ComparisonServiceAdmin.AdminMonthlyFill(_selectuser);
+            dgvCategoryComparisonAverageCalorie.DataSource = _ComparisonServiceAdmin.AdminWeeklyFill(_selectuser);
+            dgvCategoryComparisonUserCalorie.DataSource = _ComparisonServiceAdmin.AdminWeeklyFill2(_selectuser);
+            dgvCategoryComparisonAverageCalorie.Show();
+            dgvCategoryComparisonUserCalorie.Show();
+            dgvBreakfast.Hide();
+            dgvLunch.Hide();
+            dgvDinner.Hide();
+            dgvSnacks.Hide();
+            AdminStatsFormUsersMealDgv.Hide();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void AdminStatsFormUsersMealDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+       
     }
 }
