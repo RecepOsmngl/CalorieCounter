@@ -26,4 +26,5 @@ namespace CalorieCounterDataAccess.Configuration
                    .HasForeignKey(x => x.PhotographID);
         }
     }
+    //ufvfvkıkgı
 }
