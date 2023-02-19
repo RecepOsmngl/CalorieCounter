@@ -29,8 +29,8 @@ namespace CalorieCounterDataAccess
         {
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8BU397I;Initial Catalog=CalorieCounterDB;user Id=sa;Password=asdqwe123");
             //base.OnConfiguring(optionsBuilder);
-            //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-FJAHODS;Initial Catalog=CalorieCounterDB;user Id=sa;Password=Kurumsal123");
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-Q56AEMU\MSSQLKD14;Initial Catalog=CalorieCounterDB;user Id=sa;Password=Beste1998.");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-FJAHODS;Initial Catalog=CalorieCounterDB;user Id=sa;Password=Kurumsal123");
+            //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-Q56AEMU\MSSQLKD14;Initial Catalog=CalorieCounterDB;user Id=sa;Password=Beste1998.");
 
             base.OnConfiguring(optionsBuilder);
         }

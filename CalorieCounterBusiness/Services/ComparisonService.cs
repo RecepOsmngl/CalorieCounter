@@ -21,8 +21,8 @@ namespace CalorieCounterBusiness.Services
                 var oneWeekAgo = DateTime.Today.AddDays(-7);
                 var averages = _db.MealEntityTable
                     .Where(m => m.MealTime >= oneWeekAgo) // son bir hafta 
-                    .GroupBy(m => new { m.MealCategoryID, m.UserID }) // kategori ve kullanıcıya
-                    .Select(g => new { UserId = g.Key.UserID, CategoryId = g.Key.MealCategoryID, AverageCalories = g.Average(m => m.FoodTotalCalorie) }) // her kategorideki yemeklerin ortalama kalori tüketimini hesaplayalım
+                    .GroupBy(m => new {  m.UserID,m.FoodEntity.FoodCategoryID }) // kategori ve kullanıcıya
+                    .Select(g => new { UserId = g.Key.UserID, CategoryId = g.Key.FoodCategoryID, AverageCalories = g.Average(m => m.FoodTotalCalorie) }) // her kategorideki yemeklerin ortalama kalori tüketimini hesaplayalım
                     .ToList();             
                 return averages;
             }
@@ -35,8 +35,8 @@ namespace CalorieCounterBusiness.Services
                 var oneWeekAgo = DateTime.Today.AddDays(-7);
                 var averages = _db.MealEntityTable
                     .Where(m => m.MealTime >= oneWeekAgo && m.UserID == userEntity.UserID) // son bir hafta 
-                    .GroupBy(m => new { m.MealCategoryID, m.UserID }) // kategori ve kullanıcıya
-                    .Select(g => new { UserId = g.Key.UserID, CategoryId = g.Key.MealCategoryID, UserCalories = g.Sum(g=>g.FoodTotalCalorie) }) // her kategorideki yemeklerin ortalama kalori tüketimini hesaplayalım
+                    .GroupBy(m => new { m.FoodEntity.FoodCategoryID, m.UserID }) // kategori ve kullanıcıya
+                    .Select(g => new { UserId = g.Key.UserID, CategoryId = g.Key.FoodCategoryID, UserCalories = g.Sum(g=>g.FoodTotalCalorie) }) // her kategorideki yemeklerin ortalama kalori tüketimini hesaplayalım
                     .ToList();
                 return averages;
             }
@@ -50,8 +50,8 @@ namespace CalorieCounterBusiness.Services
                 var oneMonthAgo = DateTime.Today.AddDays(-30);
                 var averages = _db.MealEntityTable
                     .Where(m => m.MealTime >= oneMonthAgo) // son bir hafta 
-                    .GroupBy(m => new { m.MealCategoryID, m.UserID }) // kategori ve kullanıcıya
-                    .Select(g => new { UserId = g.Key.UserID, CategoryId = g.Key.MealCategoryID, AverageCalories = g.Average(m => m.FoodTotalCalorie) }) // her kategorideki yemeklerin ortalama kalori tüketimini hesaplayalım
+                    .GroupBy(m => new { m.FoodEntity.FoodCategoryID, m.UserID }) // kategori ve kullanıcıya
+                    .Select(g => new { UserId = g.Key.UserID, CategoryId = g.Key.FoodCategoryID, AverageCalories = g.Average(m => m.FoodTotalCalorie) }) // her kategorideki yemeklerin ortalama kalori tüketimini hesaplayalım
                     .ToList();
                 return averages;
             }
@@ -67,8 +67,8 @@ namespace CalorieCounterBusiness.Services
                     var oneMonthAgo = DateTime.Today.AddDays(-30);
                     var averages = _db.MealEntityTable
                         .Where(m => m.MealTime >= oneMonthAgo && m.UserID == userEntity.UserID) // son bir hafta 
-                        .GroupBy(m => new { m.MealCategoryID, m.UserID }) // kategori ve kullanıcıya
-                        .Select(g => new { UserId = g.Key.UserID, CategoryId = g.Key.MealCategoryID, UserCalories = g.Sum(g => g.FoodTotalCalorie) }) // her kategorideki yemeklerin ortalama kalori tüketimini hesaplayalım
+                        .GroupBy(m => new { m.FoodEntity.FoodCategoryID, m.UserID }) // kategori ve kullanıcıya
+                        .Select(g => new { UserId = g.Key.UserID, CategoryId = g.Key.FoodCategoryID, UserCalories = g.Sum(g => g.FoodTotalCalorie) }) // her kategorideki yemeklerin ortalama kalori tüketimini hesaplayalım
                         .ToList();
                     return averages;
                 }
