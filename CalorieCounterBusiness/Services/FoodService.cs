@@ -24,15 +24,26 @@ namespace CalorieCounterBusiness.Services
             {
              var FoodList=_db.FoodEntityTable.Select(x => new
                 {
+                 FoodId=x.FoodID,
                     FoodName = x.FoodName,
+                    FoodCategoryId=x.FoodCategoryID,
                     FoodCategoryName = x.FoodCategoryEntity.FoodCategoryName,
                     PhotographId = x.PhotographID,
-                    FoodCalorie = x.FoodCalorie
+                    FoodCalorie = x.FoodCalorie,
+                    Photograph=x.PhotographEntity.Photograph
                 }).OrderBy(x=>x.FoodName).ToList();
                 return FoodList;
             }
         }
-
+        public int FoodPhotographIdAdd(PhotographEntity photograph)
+        {
+            using(_db=new CalorieCounterContext())
+            {
+                int FoodPhotographId = _db.PhotographEntityTable.Where(x => x.Photograph == photograph.Photograph).Select(x => x.PhotographID).First();
+                //int FoodEntity= FoodCategoryEntity.FoodCategoryID;
+                return FoodPhotographId;
+            }
+        }
         public int FoodIdAdd(FoodCategoryEntity food)
         {
             using(_db=new CalorieCounterContext())
@@ -56,6 +67,22 @@ namespace CalorieCounterBusiness.Services
             using (_db = new CalorieCounterContext())
             {
                 _db.FoodEntityTable.Add(food);
+                int count = _db.SaveChanges();
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        public bool PhotographAdd(PhotographEntity photograph)
+        {
+            using (_db = new CalorieCounterContext())
+            {
+                _db.PhotographEntityTable.Add(photograph);
                 int count = _db.SaveChanges();
                 if (count > 0)
                 {
@@ -118,6 +145,24 @@ namespace CalorieCounterBusiness.Services
                 }
             }
         }
+        public bool PhotographEdit(PhotographEntity photograph)
+        {
+            using (_db = new CalorieCounterContext())
+            {
+                PhotographEntity photographEntity = _db.PhotographEntityTable.Where(x=>x.Photograph==photograph.Photograph).FirstOrDefault();
+                photographEntity.PhotographName =photograph.PhotographName;
+                photographEntity.PhotographID = photograph.PhotographID;
+                int count = _db.SaveChanges();
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         //Yemeği databaseden silen method.
 
@@ -151,25 +196,26 @@ namespace CalorieCounterBusiness.Services
         /// </summary>
         /// <param name="food"></param>
         /// <returns></returns>
-        public List<FoodEntity> FoodSearch(FoodEntity food)
+        public dynamic FoodSearch(FoodEntity food)
         {
             using (_db = new CalorieCounterContext())
             {
-                List<FoodEntity> foodEntities = new List<FoodEntity>();
-                FoodEntity foodEntity = _db.FoodEntityTable.FirstOrDefault(x => x.FoodName == food.FoodName);
-
-                if (foodEntity != null)
-                {
-                    foodEntities.Clear();
-                    foodEntities.Add(foodEntity);
-                    return foodEntities;
-                }
-                else
-                {
-                    foodEntities.Clear();
-                    return foodEntities;
-                }
                 
+               var foodEntity = _db.FoodEntityTable.Where(x => x.FoodName == food.FoodName).Select(x => new
+                {
+                    FoodId = x.FoodID,
+                    FoodName = x.FoodName,
+                    FoodCategoryId = x.FoodCategoryID,
+                    FoodCategoryName = x.FoodCategoryEntity.FoodCategoryName,
+                    PhotographId = x.PhotographID,
+                    FoodCalorie = x.FoodCalorie,
+                    Photograph = x.PhotographEntity.Photograph
+
+                }).ToList();
+
+              
+                    return foodEntity;
+           
 
             }
         }

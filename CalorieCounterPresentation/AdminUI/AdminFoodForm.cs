@@ -81,13 +81,14 @@ namespace CalorieCounterPresentation.AdminUI
                 {
                     _foodEntity = new FoodEntity();
                     _foodEntity.FoodName = foodName;
-                    List<FoodEntity> IsCheck = new List<FoodEntity>();
-                    IsCheck = _foodService.FoodSearch(_foodEntity);
-                    if (IsCheck.Count != 0)
+                   
+                  var IsCheck = _foodService.FoodSearch(_foodEntity);
+                    AdminFoodFormDataGridView.DataSource = IsCheck;
+                    if (AdminFoodFormDataGridView.DataSource != null)
                     {
 
                         MessageBox.Show($"The food named  {_foodEntity.FoodName},has been successfully found!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        AdminFoodFormDataGridView.DataSource = IsCheck;
+                       
                         //IsCheck.Clear();
                         FoodTextBoxClear();
                     }
@@ -128,11 +129,13 @@ namespace CalorieCounterPresentation.AdminUI
                     MessageBox.Show($"id {_foodEntity.FoodID} has been deleted successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FoodFill();
                     FoodTextBoxClear();
+                    PictureDelete();
                 }
                 else
                 {
                     MessageBox.Show("Please try again!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     FoodTextBoxClear();
+                    PictureDelete();
                 }
 
             }
@@ -179,11 +182,13 @@ namespace CalorieCounterPresentation.AdminUI
                         MessageBox.Show("Editting Successful!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FoodFill();
                         FoodTextBoxClear();
+                        PictureDelete();
                     }
                     else
                     {
                         MessageBox.Show("Please try again!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         FoodTextBoxClear();
+                        PictureDelete();
                     }
                 }
                 else
@@ -208,7 +213,8 @@ namespace CalorieCounterPresentation.AdminUI
            int _foodcategoryid= int.Parse(AdminFoodFormDataGridView.CurrentRow.Cells[2].Value.ToString());
             string foodcategoryname = _foodService.ComeFoodCategoryName(_foodcategoryid);
             AdminFoodFormFoodCategoryNameTextBox.Text = foodcategoryname;
-            AdminFoodFormFoodCalorieTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[4].Value.ToString();
+            AdminFoodFormFoodCalorieTextBox.Text = AdminFoodFormDataGridView.CurrentRow.Cells[5].Value.ToString();
+            AdminFoodFormPictureBox.ImageLocation = AdminFoodFormDataGridView.CurrentRow.Cells[6].Value.ToString();
             AdminFoodFormEditButton.Enabled = true;
 
             
@@ -261,6 +267,14 @@ namespace CalorieCounterPresentation.AdminUI
                     //_foodEntity.FoodCategoryEntity.FoodCategoryName=foodCategoryName;
                     _foodEntity.FoodCategoryID = foodEntityFoodCategoryId;
                     _foodEntity.FoodCalorie = foodCalorie;
+                    PhotographEntity _photographEntity = new PhotographEntity();
+                    _photographEntity.PhotographName = foodName;
+                    _photographEntity.Photograph= AdminFoodFormPictureBox.ImageLocation;
+                    int foodEntityPhotographId = _foodService.FoodPhotographIdAdd(_photographEntity);
+                    _photographEntity.PhotographID = foodEntityPhotographId;
+                    _foodEntity.PhotographID=foodEntityPhotographId;
+                    bool IsCheckPhotographEdit = _foodService.PhotographEdit(_photographEntity);
+
 
                     bool IsCheck = _foodService.FoodAddIsCheck(_foodEntity);
                     if (IsCheck)
@@ -272,11 +286,13 @@ namespace CalorieCounterPresentation.AdminUI
                             MessageBox.Show("Adding Successful!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             FoodFill();
                             FoodTextBoxClear();
+                            PictureDelete();
                         }
                         else
                         {
                             MessageBox.Show("Please try again!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             FoodTextBoxClear();
+                            PictureDelete();
                         }
                     }
 
@@ -367,6 +383,11 @@ namespace CalorieCounterPresentation.AdminUI
 
         }
 
+        private void PictureDelete()
+        {
+            AdminFoodFormPictureBox.Image = null;
+        }
+
         private void LoadImageButton_Click(object sender, EventArgs e)
         {
             # region // folder browser dialong try
@@ -395,11 +416,20 @@ namespace CalorieCounterPresentation.AdminUI
             //    }
             //}
             #endregion
-
+            
             OpenFileDialog Open = new OpenFileDialog();
             if(Open.ShowDialog() == DialogResult.OK)
             {
+                
                 AdminFoodFormPictureBox.ImageLocation = Open.FileName;
+                PhotographEntity photographEntity=new PhotographEntity();
+                photographEntity.Photograph = AdminFoodFormPictureBox.ImageLocation;
+                bool Ischeckadd = _foodService.PhotographAdd(photographEntity);
+              
+
+
+
+
                 // AdminFoodFormPictureBox.Resize = 
             }
 

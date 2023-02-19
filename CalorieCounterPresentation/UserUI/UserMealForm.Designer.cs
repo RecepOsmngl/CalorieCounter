@@ -32,7 +32,6 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.UserMealFormFoodNameTextBox = new System.Windows.Forms.TextBox();
-            this.UserMealFormSearchButton = new System.Windows.Forms.Button();
             this.UserMealFormDeleteButton = new System.Windows.Forms.Button();
             this.UserMealFormEditButton = new System.Windows.Forms.Button();
             this.UserMealFormAddButton = new System.Windows.Forms.Button();
@@ -104,21 +103,6 @@
             this.UserMealFormFoodNameTextBox.Name = "UserMealFormFoodNameTextBox";
             this.UserMealFormFoodNameTextBox.Size = new System.Drawing.Size(225, 22);
             this.UserMealFormFoodNameTextBox.TabIndex = 52;
-            // 
-            // UserMealFormSearchButton
-            // 
-            this.UserMealFormSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(89)))), ((int)(((byte)(83)))));
-            this.UserMealFormSearchButton.FlatAppearance.BorderSize = 0;
-            this.UserMealFormSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UserMealFormSearchButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.UserMealFormSearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
-            this.UserMealFormSearchButton.Location = new System.Drawing.Point(666, 177);
-            this.UserMealFormSearchButton.Name = "UserMealFormSearchButton";
-            this.UserMealFormSearchButton.Size = new System.Drawing.Size(75, 35);
-            this.UserMealFormSearchButton.TabIndex = 49;
-            this.UserMealFormSearchButton.Text = "Search";
-            this.UserMealFormSearchButton.UseVisualStyleBackColor = false;
-            this.UserMealFormSearchButton.Click += new System.EventHandler(this.Click);
             // 
             // UserMealFormDeleteButton
             // 
@@ -335,7 +319,6 @@
             this.Controls.Add(this.UserMealFormFoodPortionTextBox);
             this.Controls.Add(this.UserMealFormLabel4);
             this.Controls.Add(this.UserMealFormFoodNameTextBox);
-            this.Controls.Add(this.UserMealFormSearchButton);
             this.Controls.Add(this.UserMealFormDeleteButton);
             this.Controls.Add(this.UserMealFormEditButton);
             this.Controls.Add(this.UserMealFormAddButton);
@@ -363,7 +346,6 @@
         private Button CloseButton;
         private Button BackButton;
         private TextBox UserMealFormFoodNameTextBox;
-        private Button UserMealFormSearchButton;
         private Button UserMealFormDeleteButton;
         private Button UserMealFormEditButton;
         private Button UserMealFormAddButton;

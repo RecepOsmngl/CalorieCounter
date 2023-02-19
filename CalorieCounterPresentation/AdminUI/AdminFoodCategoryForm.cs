@@ -263,6 +263,18 @@ namespace CalorieCounterPresentation.AdminUI
 
         private void AdminFoodCategoryForm_Load(object sender, EventArgs e)
         {
+
+            using (_db = new CalorieCounterContext())
+            {
+                List<FoodCategoryEntity> _FoodCategoryEntityList = _db.FoodCategoryEntityTable.ToList();
+                AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
+                foreach (FoodCategoryEntity item in _FoodCategoryEntityList)
+                {
+                    ac.Add(item.FoodCategoryName);
+
+                }
+                AdminFoodCategoryFormFoodCategoryNameTextBox.AutoCompleteCustomSource = ac;
+            }
             FoodFill();
             FoodTextBoxClear();
         }

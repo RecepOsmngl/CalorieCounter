@@ -92,6 +92,8 @@
             // 
             // AdminMealCategoryFormMealCategoryNameTextBox
             // 
+            this.AdminMealCategoryFormMealCategoryNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.AdminMealCategoryFormMealCategoryNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.AdminMealCategoryFormMealCategoryNameTextBox.Location = new System.Drawing.Point(435, 62);
             this.AdminMealCategoryFormMealCategoryNameTextBox.Name = "AdminMealCategoryFormMealCategoryNameTextBox";
             this.AdminMealCategoryFormMealCategoryNameTextBox.Size = new System.Drawing.Size(225, 22);

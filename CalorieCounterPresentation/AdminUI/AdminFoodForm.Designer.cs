@@ -50,7 +50,6 @@
             this.AdminFoodFormFoodCalorieTextBox = new System.Windows.Forms.TextBox();
             this.AdminFoodFormPictureBox = new System.Windows.Forms.PictureBox();
             this.LoadImageButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormDataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodFormPictureBox)).BeginInit();
@@ -302,23 +301,12 @@
             this.LoadImageButton.UseVisualStyleBackColor = false;
             this.LoadImageButton.Click += new System.EventHandler(this.LoadImageButton_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(295, 162);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 35);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "geçici buton, fotoğraf deneme";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // AdminFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 500);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.LoadImageButton);
             this.Controls.Add(this.AdminFoodFormPictureBox);
             this.Controls.Add(this.AdminFoodFormFoodCalorieTextBox);

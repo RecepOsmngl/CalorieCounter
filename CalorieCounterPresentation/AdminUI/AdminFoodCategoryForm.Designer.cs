@@ -39,11 +39,11 @@
             this.AdminFoodCategoryFormAddButton = new System.Windows.Forms.Button();
             this.AdminFoodCategoryFormLabel1 = new System.Windows.Forms.Label();
             this.AdminFoodCategoryFormDataGridView = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.csmRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.AdminFoodCategoryFormLabel2 = new System.Windows.Forms.Label();
             this.NN2 = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.csmRefresh = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.AdminFoodCategoryFormDataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,8 @@
             // 
             // AdminFoodCategoryFormFoodCategoryNameTextBox
             // 
+            this.AdminFoodCategoryFormFoodCategoryNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.AdminFoodCategoryFormFoodCategoryNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.AdminFoodCategoryFormFoodCategoryNameTextBox.Location = new System.Drawing.Point(435, 62);
             this.AdminFoodCategoryFormFoodCategoryNameTextBox.Name = "AdminFoodCategoryFormFoodCategoryNameTextBox";
             this.AdminFoodCategoryFormFoodCategoryNameTextBox.Size = new System.Drawing.Size(225, 22);
@@ -179,6 +181,20 @@
             this.AdminFoodCategoryFormDataGridView.TabIndex = 45;
             this.AdminFoodCategoryFormDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdminFoodFormDataGridView_CellClick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.csmRefresh});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(114, 26);
+            // 
+            // csmRefresh
+            // 
+            this.csmRefresh.Name = "csmRefresh";
+            this.csmRefresh.Size = new System.Drawing.Size(113, 22);
+            this.csmRefresh.Text = "Refresh";
+            this.csmRefresh.Click += new System.EventHandler(this.CsmClick);
+            // 
             // AdminFoodCategoryFormLabel2
             // 
             this.AdminFoodCategoryFormLabel2.AutoSize = true;
@@ -215,20 +231,6 @@
             this.UpdateButton.TabIndex = 54;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.csmRefresh});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(114, 26);
-            // 
-            // csmRefresh
-            // 
-            this.csmRefresh.Name = "csmRefresh";
-            this.csmRefresh.Size = new System.Drawing.Size(113, 22);
-            this.csmRefresh.Text = "Refresh";
-            this.csmRefresh.Click += new System.EventHandler(this.CsmClick);
             // 
             // AdminFoodCategoryForm
             // 
