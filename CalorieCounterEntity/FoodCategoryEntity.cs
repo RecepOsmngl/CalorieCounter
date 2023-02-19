@@ -27,5 +27,6 @@ namespace CalorieCounterEntity
         {
             FoodEntity = new HashSet<FoodEntity>();
         }
+        //hüseyin yazıyor
     }
 }
