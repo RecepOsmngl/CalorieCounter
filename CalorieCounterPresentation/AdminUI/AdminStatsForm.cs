@@ -93,6 +93,12 @@ namespace CalorieCounterPresentation.AdminUI
         private void AdminStatsForm_Load(object sender, EventArgs e)
         {
             UsersFill();
+            CreateCountUsersMealDgv();
+            dgvBreakfast.Hide();
+            dgvLunch.Hide();
+            dgvDinner.Hide();
+            dgvSnacks.Hide();
+            AdminStatsFormUsersMealDgv.Show();
         }
 
         public void UserMealFill(int _TotalBreakfastCalorie, int _TotalLunchCalorie, int _TotalDinnerCalorie, int _TotalSnackCalorie, int _TotalCalorie)
@@ -120,11 +126,13 @@ namespace CalorieCounterPresentation.AdminUI
 
         private void AdminEndofDayButton_Click(object sender, EventArgs e)
         {
+            dgvBreakfast.Hide();
+            dgvLunch.Hide();
+            dgvDinner.Hide();
+            dgvSnacks.Hide();
+            AdminStatsFormUsersMealDgv.Show();
             CalorieCalculator();
         }
-
-
-
 
         #region RunTime-DataGridView
         Label lblBreakfast = new Label();
@@ -183,13 +191,17 @@ namespace CalorieCounterPresentation.AdminUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            dgvBreakfast.Show();
+            dgvLunch.Show();
+            dgvDinner.Show();
+            dgvSnacks.Show();
+            AdminStatsFormUsersMealDgv.Hide();
+            TotalFoodList();
         }
 
         private void CreateCountUsersMealDgv()
         {
             int Width = AdminStatsFormUsersMealDgv.Width / 4;
-            AdminStatsFormUsersMealDgv.Hide();
             dgvBreakfast.Location = new System.Drawing.Point(12, 300);
             dgvBreakfast.Size = new System.Drawing.Size(Width, AdminStatsFormUsersMealDgv.Height - 16);
             dgvBreakfast.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -232,7 +244,12 @@ namespace CalorieCounterPresentation.AdminUI
 
         private void UserStatFormWeeklyMealCompare_Click(object sender, EventArgs e)
         {
-           
+            dgvBreakfast.Show();
+            dgvLunch.Show();
+            dgvDinner.Show();
+            dgvSnacks.Show();
+            AdminStatsFormUsersMealDgv.Hide();
+            WeeklyMealCompare();
         }
 
         private void WeeklyMealCompare()
@@ -267,8 +284,12 @@ namespace CalorieCounterPresentation.AdminUI
 
         private void UserStatFormMonthlyMealCompare_Click(object sender, EventArgs e)
         {
+            dgvBreakfast.Show();
+            dgvLunch.Show();
+            dgvDinner.Show();
+            dgvSnacks.Show();
+            AdminStatsFormUsersMealDgv.Hide();
             MonthlyMealCompare();
-            CreateCountUsersMealDgv();
         }
 
         private void MonthlyMealCompare()

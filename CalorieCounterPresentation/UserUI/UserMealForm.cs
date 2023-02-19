@@ -106,9 +106,6 @@ namespace CalorieCounterPresentation.UserUI
             else
                 FoodPortion = _DefaultPortion;
 
-
-        
-
             try
             {
                 if (!string.IsNullOrWhiteSpace(FoodName) && FoodPortion != 0 && MealCategoryId != 0 && MealTime != null)

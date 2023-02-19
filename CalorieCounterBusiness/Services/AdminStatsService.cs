@@ -123,7 +123,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                var BreakfastCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 1 /*&& x.MealTime == oneWeekAgo*/).GroupBy(x => x.MealCategoryID).Select(x => new
+                var BreakfastCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 1 && (oneWeekAgo <= x.MealTime && x.MealTime <= DateTime.Today)).GroupBy(x => x.MealCategoryID).Select(x => new
                 {
                     TotalUserBreakfastCalori = x.Where(x => x.UserID == selectedUser.UserID).Sum(x => x.FoodTotalCalorie),
                     AverageBreakfastCalori = x.Average(x => x.FoodTotalCalorie)
@@ -135,7 +135,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                var LunchCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 2/* && x.MealTime == oneWeekAgo*/).GroupBy(x => x.MealCategoryID).Select(x => new
+                var LunchCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 2 && (oneWeekAgo <= x.MealTime && x.MealTime <= DateTime.Today)).GroupBy(x => x.MealCategoryID).Select(x => new
                 {
                     TotalUserLunchCalori = x.Where(x => x.UserID == selectedUser.UserID).Sum(x => x.FoodTotalCalorie),
                     AverageLunchCalori = x.Average(x => x.FoodTotalCalorie)
@@ -147,7 +147,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                var DinnerCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 3 /*&& x.MealTime == oneWeekAgo*/).GroupBy(x => x.MealCategoryID).Select(x => new
+                var DinnerCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 3 && (oneWeekAgo <= x.MealTime && x.MealTime <= DateTime.Today)).GroupBy(x => x.MealCategoryID).Select(x => new
                 {
                     TotalUserDinnerCalori = x.Where(x => x.UserID == selectedUser.UserID).Sum(x => x.FoodTotalCalorie),
                     AverageDinnerCalori = x.Average(x => x.FoodTotalCalorie)
@@ -159,7 +159,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                var SnacksCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 4 /*&& x.MealTime == oneWeekAgo*/).GroupBy(x => x.MealCategoryID).Select(x => new
+                var SnacksCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 4 && (oneWeekAgo <= x.MealTime && x.MealTime <= DateTime.Today)).GroupBy(x => x.MealCategoryID).Select(x => new
                 {
                     TotalUserSnacksCalori = x.Where(x => x.UserID == selectedUser.UserID).Sum(x => x.FoodTotalCalorie),
                     AverageSnacksCalori = x.Average(x => x.FoodTotalCalorie)
@@ -171,7 +171,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                var BreakfastCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 1/*&& x.MealTime == oneMonthAgo*/).GroupBy(x => x.MealCategoryID).Select(x => new
+                var BreakfastCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 1 && (oneMonthAgo <= x.MealTime && x.MealTime <= DateTime.Today)).GroupBy(x => x.MealCategoryID).Select(x => new
                 {
                     TotalUserBreakfastCalori = x.Where(x => x.UserID == selectedUser.UserID).Sum(x => x.FoodTotalCalorie),
                     AverageBreakfastCalori = x.Average(x => x.FoodTotalCalorie)
@@ -183,7 +183,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                var LunchCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 2/* && x.MealTime == oneMonthAgo*/).GroupBy(x => x.MealCategoryID).Select(x => new
+                var LunchCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 2 && (oneMonthAgo <= x.MealTime && x.MealTime <= DateTime.Today)).GroupBy(x => x.MealCategoryID).Select(x => new
                 {
                     TotalUserLunchCalori = x.Where(x => x.UserID == selectedUser.UserID).Sum(x => x.FoodTotalCalorie),
                     AverageLunchCalori = x.Average(x => x.FoodTotalCalorie)
@@ -195,7 +195,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                var DinnerCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 3 /*&& x.MealTime == oneMonthAgo*/).GroupBy(x => x.MealCategoryID).Select(x => new
+                var DinnerCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 3 && (oneMonthAgo <= x.MealTime && x.MealTime <= DateTime.Today)).GroupBy(x => x.MealCategoryID).Select(x => new
                 {
                     TotalUserDinnerCalori = x.Where(x => x.UserID == selectedUser.UserID).Sum(x => x.FoodTotalCalorie),
                     AverageDinnerCalori = x.Average(x => x.FoodTotalCalorie)
@@ -207,7 +207,7 @@ namespace CalorieCounterBusiness.Services
         {
             using (_db = new CalorieCounterContext())
             {
-                var SnacksCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 4 /*&& x.MealTime == oneMonthAgo*/).GroupBy(x => x.MealCategoryID).Select(x => new
+                var SnacksCompareList = _db.MealEntityTable.Where(x => x.MealCategoryEntity.MealCategoryID == 4 && (oneMonthAgo <= x.MealTime && x.MealTime <= DateTime.Today)).GroupBy(x => x.MealCategoryID).Select(x => new
                 {
                     TotalUserSnacksCalori = x.Where(x => x.UserID == selectedUser.UserID).Sum(x => x.FoodTotalCalorie),
                     AverageSnacksCalori = x.Average(x => x.FoodTotalCalorie)

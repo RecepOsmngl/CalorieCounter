@@ -91,6 +91,7 @@
             // 
             // UserStatsFormUsersMealDgv
             // 
+            this.UserStatsFormUsersMealDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.UserStatsFormUsersMealDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UserStatsFormUsersMealDgv.Location = new System.Drawing.Point(12, 284);
             this.UserStatsFormUsersMealDgv.Name = "UserStatsFormUsersMealDgv";
@@ -121,7 +122,7 @@
             this.UserStatsFormFoodCategoryButton.TabIndex = 80;
             this.UserStatsFormFoodCategoryButton.Text = "End Of Day";
             this.UserStatsFormFoodCategoryButton.UseVisualStyleBackColor = false;
-            this.UserStatsFormFoodCategoryButton.Click += new System.EventHandler(this.UserStatsFormFoodCategoryButton_Click);
+            this.UserStatsFormFoodCategoryButton.Click += new System.EventHandler(this.AdminEndofDayButton_Click);
             // 
             // UserStatsFormMealCategoryButton
             // 
@@ -136,7 +137,7 @@
             this.UserStatsFormMealCategoryButton.TabIndex = 79;
             this.UserStatsFormMealCategoryButton.Text = "Meal Weekly";
             this.UserStatsFormMealCategoryButton.UseVisualStyleBackColor = false;
-            this.UserStatsFormMealCategoryButton.Click += new System.EventHandler(this.UserStatsFormMealCategoryButton_Click);
+            this.UserStatsFormMealCategoryButton.Click += new System.EventHandler(this.UserStatFormWeeklyMealCompare_Click);
             // 
             // UserStatsFormYearlyButton
             // 
@@ -151,7 +152,7 @@
             this.UserStatsFormYearlyButton.TabIndex = 78;
             this.UserStatsFormYearlyButton.Text = "Meal Monthly";
             this.UserStatsFormYearlyButton.UseVisualStyleBackColor = false;
-            this.UserStatsFormYearlyButton.Click += new System.EventHandler(this.UserStatsFormYearlyButton_Click);
+            this.UserStatsFormYearlyButton.Click += new System.EventHandler(this.UserStatFormMonthlyMealCompare_Click);
             // 
             // UserStatsFormMonthlyButton
             // 
@@ -244,7 +245,7 @@
             this.button1.TabIndex = 85;
             this.button1.Text = "Food Variety";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserStatsForm
             // 

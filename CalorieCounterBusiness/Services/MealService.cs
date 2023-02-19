@@ -12,8 +12,6 @@ namespace CalorieCounterBusiness.Services
     {
         CalorieCounterContext _db;
 
-
-
         public dynamic MealEntitie(int userid)
         {
             using (_db = new CalorieCounterContext())

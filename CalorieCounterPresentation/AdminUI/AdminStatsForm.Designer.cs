@@ -160,7 +160,7 @@
             this.FoodVarietyButton.TabIndex = 91;
             this.FoodVarietyButton.Text = "Food Variety";
             this.FoodVarietyButton.UseVisualStyleBackColor = false;
-            this.FoodVarietyButton.Click += new System.EventHandler(this.button1_Click_1);
+            this.FoodVarietyButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserStatsFormFoodCategoryButton
             // 
@@ -190,7 +190,7 @@
             this.UserStatFormWeeklyMealCompare.TabIndex = 89;
             this.UserStatFormWeeklyMealCompare.Text = "Meal Weekly";
             this.UserStatFormWeeklyMealCompare.UseVisualStyleBackColor = false;
-            this.UserStatFormWeeklyMealCompare.Click += new System.EventHandler(this.UserStatsFormMealCategoryButton_Click);
+            this.UserStatFormWeeklyMealCompare.Click += new System.EventHandler(this.UserStatFormWeeklyMealCompare_Click);
             // 
             // UserStatFormMonthlyMealCompare
             // 
@@ -205,7 +205,7 @@
             this.UserStatFormMonthlyMealCompare.TabIndex = 88;
             this.UserStatFormMonthlyMealCompare.Text = "Meal Monthly";
             this.UserStatFormMonthlyMealCompare.UseVisualStyleBackColor = false;
-            this.UserStatFormMonthlyMealCompare.Click += new System.EventHandler(this.UserStatFormMonthlyMealCompare_Click_1);
+            this.UserStatFormMonthlyMealCompare.Click += new System.EventHandler(this.UserStatFormMonthlyMealCompare_Click);
             // 
             // UserStatsFormMonthlyButton
             // 

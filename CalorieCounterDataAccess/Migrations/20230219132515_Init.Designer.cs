@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalorieCounterDataAccess.Migrations
 {
     [DbContext(typeof(CalorieCounterContext))]
-    [Migration("20230217202338_Init")]
+    [Migration("20230219132515_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

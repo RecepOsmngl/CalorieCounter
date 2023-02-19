@@ -23,6 +23,15 @@ namespace CalorieCounterPresentation.UserUI
             InitializeComponent();
             _selectuser = currentuser; 
         }
+        private void UserStatsForm_Load(object sender, EventArgs e)
+        {
+            CreateCountUsersMealDgv();
+            dgvBreakfast.Hide();
+            dgvLunch.Hide();
+            dgvDinner.Hide();
+            dgvSnacks.Hide();
+            UserStatsFormUsersMealDgv.Show();
+        }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
@@ -89,11 +98,6 @@ namespace CalorieCounterPresentation.UserUI
             //AdminStatsFormUserDgv.Columns["MealEntity"].Visible = false;
         }
 
-        private void AdminStatsForm_Load(object sender, EventArgs e)
-        {
-            UsersFill();
-        }
-
         public void UserMealFill(int _TotalBreakfastCalorie, int _TotalLunchCalorie, int _TotalDinnerCalorie, int _TotalSnackCalorie, int _TotalCalorie)
         {
             DataGridviewClear();
@@ -117,6 +121,11 @@ namespace CalorieCounterPresentation.UserUI
 
         private void AdminEndofDayButton_Click(object sender, EventArgs e)
         {
+            dgvBreakfast.Hide();
+            dgvLunch.Hide();
+            dgvDinner.Hide();
+            dgvSnacks.Hide();
+            UserStatsFormUsersMealDgv.Show();
             CalorieCalculator();
         }
 
@@ -179,14 +188,17 @@ namespace CalorieCounterPresentation.UserUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            dgvBreakfast.Show();
+            dgvLunch.Show();
+            dgvDinner.Show();
+            dgvSnacks.Show();
+            UserStatsFormUsersMealDgv.Hide();
             TotalFoodList();
-            CreateCountUsersMealDgv();
         }
 
         private void CreateCountUsersMealDgv()
         {
-            int Width = UserStatsFormUsersMealDgv.Width / 4;
-            UserStatsFormUsersMealDgv.Hide();
+            int Width = UserStatsFormUsersMealDgv.Width / 4;    
             dgvBreakfast.Location = new System.Drawing.Point(12, 300);
             dgvBreakfast.Size = new System.Drawing.Size(Width, UserStatsFormUsersMealDgv.Height - 16);
             dgvBreakfast.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -229,7 +241,12 @@ namespace CalorieCounterPresentation.UserUI
 
         private void UserStatFormWeeklyMealCompare_Click(object sender, EventArgs e)
         {
-            
+            dgvBreakfast.Show();
+            dgvLunch.Show();
+            dgvDinner.Show();
+            dgvSnacks.Show();
+            UserStatsFormUsersMealDgv.Hide();
+            WeeklyMealCompare();  
         }
 
         private void WeeklyMealCompare()
@@ -264,7 +281,12 @@ namespace CalorieCounterPresentation.UserUI
 
         private void UserStatFormMonthlyMealCompare_Click(object sender, EventArgs e)
         {
-
+            dgvBreakfast.Show();
+            dgvLunch.Show();
+            dgvDinner.Show();
+            dgvSnacks.Show();
+            UserStatsFormUsersMealDgv.Hide();
+            MonthlyMealCompare();
         }
 
         private void MonthlyMealCompare()
@@ -300,7 +322,15 @@ namespace CalorieCounterPresentation.UserUI
             var BreakfastMonthlyMealCompare = _adminStatsService.BreakfastMonthlyMealCompareList(_selectuser);
             return BreakfastMonthlyMealCompare;
         }
-
+        private void UserStatsFormFoodCategoryButton_Click(object sender, EventArgs e)
+        {
+            dgvBreakfast.Hide();
+            dgvLunch.Hide();
+            dgvDinner.Hide();
+            dgvSnacks.Hide();
+            UserStatsFormUsersMealDgv.Show();
+            CalorieCalculator();
+        }
 
 
 
@@ -316,20 +346,9 @@ namespace CalorieCounterPresentation.UserUI
             // Selamlar git hub deneme
         }
 
-        private void UserStatsForm_Load(object sender, EventArgs e)
-        {
-            // Hasan 
-        }
+       
 
-        private void UserStatsFormFoodCategoryButton_Click(object sender, EventArgs e)
-        {
-            CalorieCalculator();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void UserStatsFormMealCategoryButton_Click(object sender, EventArgs e)
         {
