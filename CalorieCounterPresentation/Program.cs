@@ -50,5 +50,7 @@ namespace CalorieCounterPresentation
 
 
         //hüseyin yazdý  
+
+        //beste yazdý
     }
 }
